@@ -8,9 +8,6 @@ use App\Http\Controllers\CoursController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
 
 
 //Student
@@ -34,9 +31,9 @@ Route::controller(TeacherController::class)->group(function(){
 Route::controller(AdminController::class)->group(function(){
   Route::get('admin', 'index');
   Route::post('admin', 'store');
-  Route::put('admin/update/{admin}', 'update');
-  Route::delete('admin/delete/{admin}', 'destroy');
-})->name('admin');
+  Route::put('admin/update/{id}', 'update');
+  Route::delete('admin/delete/{id}', 'destroy');
+});
 
 
 //Cours
@@ -45,7 +42,7 @@ Route::controller(CoursController::class)->group(function(){
   Route::post('cours', 'store');
   Route::put('cours/update/{id}', 'update');
   Route::delete('cours/delete/{id}', 'destroy');
-})->name('cours');
+});
 
 
 //Note
@@ -54,4 +51,4 @@ Route::controller(NoteController::class)->group(function(){
   Route::post('note', 'store');
   Route::put('note/update/{id}', 'update');
   Route::delete('note/delete/{id}', 'destroy');
-})->name('note');
+});
