@@ -16,7 +16,7 @@ Route::controller(StudentController::class)->group(function(){
     Route::post('student', 'store');
     Route::put('student/update/{id}', 'update');
     Route::delete('student/delete/{id}', 'destroy');
-})->name('student');
+});
 
 
 //Teacher
@@ -25,7 +25,7 @@ Route::controller(TeacherController::class)->group(function(){
   Route::post('teacher', 'store');
   Route::put('teacher/update/{id}', 'update');
   Route::delete('teacher/delete/{id}', 'destroy');
-})->name('teacher');
+});
 
 //Admnin
 Route::controller(AdminController::class)->group(function(){
