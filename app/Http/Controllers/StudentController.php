@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class StudentController extends Controller
 {
@@ -43,7 +44,7 @@ class StudentController extends Controller
         if($validator->fails()){
             $data = [
                 'status'=>422,
-                'message'=> $validator->messages(),
+                'errors'=> $validator->errors(),
             ];
 
             return response($data, 422);
@@ -53,7 +54,7 @@ class StudentController extends Controller
             $student->nom = $request->nom;
             $student->prenom = $request->prenom;
             $student->date_naissance = $request->date_naissance;
-            $student->password = $request->password;
+            $student->password = bcrypt($request->password);
             $student->matricule = $request->matricule;
             $student->phone = $request->phone;
             $student->email = $request->email;
@@ -82,23 +83,30 @@ class StudentController extends Controller
             'password' => 'required',
             'matricule' => 'required',
             'phone' => 'required',
-            'email' => 'required | email',
+            'email' => 'required|email',
         ]);
 
         if($validator->fails()){
             $data = [
                 'status'=>422,
-                'message'=> $validator->messages(),
+                'errors'=> $validator->errors(),
             ];
 
             return response($data, 422);
         }else{
-            $student = Student::findOrFail($id);
+            try {
+                $student = Student::findOrFail($id);
+            } catch (ModelNotFoundException $e) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Student not found',
+                ], 404);
+            }
 
             $student->nom = $request->nom;
             $student->prenom = $request->prenom;
             $student->date_naissance = $request->date_naissance;
-            $student->password = $request->password;
+            $student->password = bcrypt($request->password);
             $student->matricule = $request->matricule;
             $student->phone = $request->phone;
             $student->email = $request->email;
@@ -119,7 +127,14 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        $student = Student::findOrFail($id);
+        try {
+            $student = Student::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Student not found',
+            ], 404);
+        }
 
         $student->delete();
 
