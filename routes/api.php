@@ -12,4 +12,7 @@ use App\Http\Controllers\TeacherController;
 //Student
 Route::apiResource('student', StudentController::class);
 
+//Teacher
+Route::apiResource('teacher', TeacherController::class);
+
 
