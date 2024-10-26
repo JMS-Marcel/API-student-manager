@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Cours;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class CoursController extends Controller
 {
@@ -16,83 +15,61 @@ class CoursController extends Controller
         $cours = Cours::all();
         $data = [
             'status' => 200,
-            'message' => 'fetchig data',
+            'message' => 'fetching all data',
             'cours' => $cours
         ];
-
         return response()->json($data, 200);
     }
-
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'nom' => 'required'
-            ]
-        );
-        if ($validator->fails()) {
-            $data = [
-                'status' => 422,
-                'message' => $validator->messages()
-            ];
-
-            return response()->json($data, 422);
-        } else {
-
-            $cours = new Cours;
-
-            $cours->nom = $request->nom;
-
-            $cours->save();
-
-            $data = [
-                'status' => 200,
-                'message' => "cours stored succesfully"
-            ];
-
-            return response()->json($data, 200);
-        }
+        $validator = $request->validate([
+            'nom'=> 'required|max:255',
+        ]);
+        
+        Cours::create($validator);
+        $data = [
+            'status' => 200,
+            'message' => 'data stored succesfully'
+        ];
+        return response()->json($data, 200);
     }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $cours = Cours::findOrFail($id);
+        $data = [
+            'status'=>200,
+            'cours' => $cours
+        ];
+        return response()->json($data, 200);
+    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'nom' => 'required'
-            ]
-        );
-        if ($validator->fails()) {
-            $data = [
-                'status' => 422,
-                'message' => $validator->messages()
-            ];
+        $validator = $request->validate([
+            'nom'=> 'required|max:255',
+        ]);
+        
+        $cours = Cours::findOrFail($id);
 
-            return response()->json($data, 422);
-        } else {
+        $cours->update($validator);
 
-            $cours = Cours::findOrFail($id);
-
-            $cours->nom = $request->nom;
-
-            $cours->save();
-
-            $data = [
-                'status' => 200,
-                'message' => "cours id: $id updated succesfully"
-            ];
-
-            return response()->json($data, 200);
-        }
+        $data = [
+            'status' => 200,
+            'message' => 'data updated succesfully',
+            'cours' => $cours
+        ];
+        return response()->json($data, 200);
     }
 
     /**
@@ -112,3 +89,4 @@ class CoursController extends Controller
         return response()->json($data, 200);
     }
 }
+

@@ -18,6 +18,9 @@ Route::apiResource('teacher', TeacherController::class);
 //Student
 Route::apiResource('student', StudentController::class);
 
+//Cours
+Route::apiResource('cours', CoursController::class);
+
 
 
 
