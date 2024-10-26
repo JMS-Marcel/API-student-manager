@@ -34,15 +34,20 @@ class AdminController extends Controller
             'date_naissance'=> 'required',
             'password'=> 'required|confirmed',
             'phone'=> 'required',
-            'email'=> 'required|email',
+            'email'=> 'required|email|unique:admins',
         ]);
         
         $validator['password'] = Hash::make($validator['password']);
 
-        Admin::create($validator);
+        $admin = Admin::create($validator);
+
+        $token = $admin->createToken($request->nom);
+
         $data = [
             'status' => 200,
-            'message' => 'data stored succesfully'
+            'message' => 'data stored succesfully',
+            'admin' => $admin,
+            'token' => $token->plainTextToken
         ];
         return response()->json($data, 200);
     }
