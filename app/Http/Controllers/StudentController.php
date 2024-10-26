@@ -37,6 +37,7 @@ class StudentController extends Controller
             'matricule' => 'required',
             'phone' => 'required',
             'email' => 'required|email',
+            'adresse' => 'required',
         ]);
 
         $validator['password'] = Hash::make($validator['password']);
@@ -77,6 +78,8 @@ class StudentController extends Controller
             'matricule' => 'required',
             'phone' => 'required',
             'email' => 'required|email',
+            'adresse' => 'required',
+
         ]);
 
         $student->update($validator);

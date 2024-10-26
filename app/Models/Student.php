@@ -17,6 +17,7 @@ class Student extends Model
         'matricule',
         'phone',
         'email',
+        'adresse'
     ];
 }
 

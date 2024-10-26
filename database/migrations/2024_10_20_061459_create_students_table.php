@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('matricule');
             $table->string('phone');
             $table->string('email');
+            $table->string('adresse');
             $table->timestamps();
         });
     }
