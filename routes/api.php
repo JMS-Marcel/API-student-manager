@@ -21,6 +21,9 @@ Route::apiResource('student', StudentController::class);
 //Cours
 Route::apiResource('cours', CoursController::class);
 
+//Note
+Route::apiResource('note', NoteController::class);
+
 
 
 
