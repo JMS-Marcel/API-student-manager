@@ -9,10 +9,16 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 
 
-//Student
-Route::apiResource('student', StudentController::class);
+//Admin
+Route::apiResource('admin', AdminController::class);
 
 //Teacher
 Route::apiResource('teacher', TeacherController::class);
+
+//Student
+Route::apiResource('student', StudentController::class);
+
+
+
 
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -16,121 +16,84 @@ class AdminController extends Controller
         $admin = Admin::all();
 
         $data = [
-            'status' => 200,
+            'status'=>200,
+            'message'=> 'fetching all data',
             'admin' => $admin
         ];
-
-        return response()->json($data, 200);
-
+        return response($data, 200);
     }
-
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),
-        [
-            'nom'=> 'required',
-            'prenom' => 'required',
-            'date_naissance' => 'required',
-            'password' => 'required',
-            'phone' => 'required',
-            'email' => 'required | email',
-        ]
-    );
-    if($validator->fails()){
-        $data = [
-            'status' => 422,
-            'message'=> $validator->messages()
-        ];
+        $validator = $request->validate([
+            'nom'=> 'required|max:255',
+            'prenom'=> 'required|max:255',
+            'date_naissance'=> 'required',
+            'password'=> 'required|confirmed',
+            'phone'=> 'required',
+            'email'=> 'required|email',
+        ]);
+        
+        $validator['password'] = Hash::make($validator['password']);
 
-        return response()->json($data, 422);
-    }else{
-        $admin = new Admin;
-
-        $admin->nom = $request->nom;
-        $admin->prenom = $request->prenom;
-        $admin->date_naissance = $request->date_naissance;
-        $admin->password = $request->password;
-        $admin->phone = $request->phone;
-        $admin->email = $request->email;
-
-        $admin->save();
-
+        Admin::create($validator);
         $data = [
             'status' => 200,
-            'message' => 'Data stored succefully' 
+            'message' => 'data stored succesfully'
         ];
-
         return response()->json($data, 200);
-
     }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(Admin $admin)
+    {
+        $data = [
+            'status'=>200,
+            'admin' => $admin
+        ];
+        return response()->json($data, 200);
     }
-
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Admin $admin)
     {
-        $validator = Validator::make($request->all(),
-        [
-            'nom'=> 'required',
-            'prenom' => 'required',
-            'date_naissance' => 'required',
-            'password' => 'required',
-            'phone' => 'required',
-            'email' => 'required | email',
-        ]
-    );
-    if($validator->fails()){
-        $data = [
-            'status' => 422,
-            'message'=> $validator->messages()
-        ];
+        $validator = $request->validate([
+            'nom'=> 'required|max:255',
+            'prenom'=> 'required|max:255',
+            'date_naissance'=> 'required',
+            'password'=> 'required|confirmed',
+            'phone'=> 'required',
+            'email'=> 'required|email',
+        ]);
+        
+        $validator['password'] = Hash::make($validator['password']);
 
-        return response()->json($data, 422);
-
-
-    }else{
-        $admin = Admin::findOrFail($id);
-
-        $admin->nom = $request->nom;
-        $admin->prenom = $request->prenom;
-        $admin->date_naissance = $request->date_naissance;
-        $admin->password = $request->password;
-        $admin->phone = $request->phone;
-        $admin->email = $request->email;
-
-        $admin->save();
-
+        $admin->update($validator);
         $data = [
             'status' => 200,
-            'message' => 'Data update succefully' 
+            'message' => 'data updated succesfully'
         ];
-
         return response()->json($data, 200);
-
-    }
-
-
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Admin $admin)
     {
-        $admin = Admin::findOrFail($id);
-
         $admin->delete();
-        $data =[
+        $data = [
             'status'=> 200,
-            'message'=> "admin id: $id is deleted succesfully"
+            'message' => 'data deleted succesfully'
         ];
+
         return response()->json($data, 200);
     }
 }
