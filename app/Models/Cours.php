@@ -11,10 +11,17 @@ class Cours extends Model
 
     protected $fillable = [
         'nom',
-        'description'
+        'description',
+        'teacher_id'
     ];
 
-    function student(){
+    function student()
+    {
         return $this->belongsTo(Student::class,  'cours_student');
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class, 'teacher_id');
     }
 }
