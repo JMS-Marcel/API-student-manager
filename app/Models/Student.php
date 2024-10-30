@@ -17,12 +17,16 @@ class Student extends Model
         'matricule',
         'phone',
         'email',
-        'adresse'
+        'adresse',
     ];
 
     public function cours()
     {
         return $this->belongsToMany(Cours::class, 'cours_student');
+    }
+
+    public function notes(){
+        return $this->hasMany(Note::class, 'student_id');
     }
 }
 

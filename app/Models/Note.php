@@ -10,6 +10,15 @@ class Note extends Model
     use HasFactory;
 
     protected $fillable = [
-        'valeur'
+        'valeur',
+        'student_id',
+        'cours_id'
     ];
+
+    function student(){
+        return $this->belongsTo(Student::class, 'student_id');
+    }
+    function notes(){
+        return $this->hasMany(Note::class, 'cours_id');
+    }
 }
