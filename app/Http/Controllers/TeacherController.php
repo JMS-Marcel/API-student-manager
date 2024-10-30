@@ -41,9 +41,12 @@ class TeacherController extends Controller
 
         $teacher = Teacher::create($validator);
 
+        $token = $teacher->createToken($request->nom);
+
         $data = [
             'status' => 200,
             'message' => 'data was stored succesfully',
+            'token' => $token->plainTextToken,
             'teacher' => $teacher
         ];
         return response()->json($data, 200);
