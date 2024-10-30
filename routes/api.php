@@ -2,15 +2,15 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CoursController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 
-Route::post('login', [AuthController::class, 'login']);
-Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::post('login', [AuthAdminController::class, 'login']);
+Route::post('logout', [AuthAdminController::class, 'logout'])->middleware('auth:sanctum');
 
 
 //Admin
