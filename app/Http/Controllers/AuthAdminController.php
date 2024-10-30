@@ -38,9 +38,12 @@ class AuthAdminController extends Controller
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();
-        return [
-            'message' => 'You are logout'
+        $data = [
+            'status' => 200,
+            'message' => 'You are logged out'
         ];
+
+        return response()->json($data, 200);
     }
 
 }
