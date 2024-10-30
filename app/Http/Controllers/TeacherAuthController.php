@@ -12,7 +12,7 @@ class TeacherAuthController extends Controller
     public function login(Request $request)
     {
         $validator = $request->validate([
-            'email'=> 'required|email|exists:techers',
+            'email'=> 'required|email|exists:teachers',
             'password'=> 'required',
         ]);
 
