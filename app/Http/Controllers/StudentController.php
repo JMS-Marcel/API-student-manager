@@ -44,6 +44,8 @@ class StudentController extends Controller
         
         $student = Student::create($validator);
 
+        $token = $student->createToken($request->nom);
+
         if ($request->has('courses')) {
             $student->cours()->attach($request->courses);
         }
@@ -51,6 +53,7 @@ class StudentController extends Controller
         $data = [
             'status' => 200,
             'message' => 'Data stored succefully!',
+            'token' => $token->plainTextToken,
             'relationship'=> $student->load('cours')
         ];
 
