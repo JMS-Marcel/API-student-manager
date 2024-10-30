@@ -14,10 +14,9 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Cours::class)->constrained()->cascadeOnDelete();
             $table->string('nom');
             $table->string('prenom');
-            $table->string('date_naissance');
+            $table->date('date_naissance');
             $table->string('password');
             $table->string('matricule');
             $table->string('phone');

@@ -19,6 +19,11 @@ class Student extends Model
         'email',
         'adresse'
     ];
+
+    public function cours()
+    {
+        return $this->belongsToMany(Cours::class, 'cours_student');
+    }
 }
 
 

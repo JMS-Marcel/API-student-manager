@@ -42,11 +42,16 @@ class StudentController extends Controller
 
         $validator['password'] = Hash::make($validator['password']);
         
-        Student::create($validator);
+        $student = Student::create($validator);
+
+        if ($request->has('courses')) {
+            $student->cours()->attach($request->courses);
+        }
 
         $data = [
             'status' => 200,
-            'message' => 'Data stored succefully!'
+            'message' => 'Data stored succefully!',
+            'relationship'=> $student->load('cours')
         ];
 
         return response()->json($data, 200);
@@ -84,9 +89,14 @@ class StudentController extends Controller
 
         $student->update($validator);
 
+        if ($request->has('courses')) {
+            $student->cours()->sync($request->courses);
+        }
+
         $data = [
             'status'=> 200,
-            'message'=> "Student id: $student->id update succesfully"
+            'message'=> "Student id: $student->id update succesfully",
+            'relationship'=> $student->load('cours')
         ];
 
         return response()->json($data,200);
