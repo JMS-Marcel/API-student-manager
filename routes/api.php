@@ -1,16 +1,32 @@
 <?php
 
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CoursController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\AuthAdminController;
+use App\Http\Controllers\StudentAuthController;
+use App\Http\Controllers\TeacherAuthController;
+use Illuminate\Http\Request;
 
-Route::post('login', [AuthController::class, 'login']);
-Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::get('/user', function(Request $request){
+  return $request->user();
+})->middleware('auth:sanctum');
+
+//Auth admin
+Route::post('login', [AuthAdminController::class, 'login']);
+Route::post('logout', [AuthAdminController::class, 'logout'])->middleware('auth:sanctum');
+
+//Auth teacher
+Route::post('login-teacher', [TeacherAuthController::class, 'login']);
+Route::post('logout-teacher', [TeacherAuthController::class, 'logout'])->middleware('auth:sanctum');
+
+//Auth Student
+Route::post('login-student', [StudentAuthController::class, 'login']);
+Route::post('logout-student', [StudentAuthController::class, 'logout'])->middleware('auth:sanctum');
 
 
 //Admin

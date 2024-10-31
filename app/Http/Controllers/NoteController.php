@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
-class NoteController extends Controller
+class NoteController extends Controller implements HasMiddleware
 {
+    public static function middleware()
+    {
+        return [
+            new Middleware('auth:sanctum', except: ['index', 'show']),
+        ];
+    }
     /**
      * Display a listing of the resource.
      */
@@ -29,14 +37,17 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         $validator = $request->validate([
-            'valeur'=> 'required'
+            'valeur'=> 'required',
+            'student_id'=> 'required|exists:students,id',
+            'cours_id' => 'required|exists:cours,id'
         ]);
 
-        Note::create($validator);
+        $note = Note::create($validator);
 
         $data = [
             'status'=> 200,
             'message'=> 'Note stored succesfully',
+            'note' => $note
         ];
         return response()->json($data, 200);
     }
@@ -59,7 +70,9 @@ class NoteController extends Controller
     public function update(Request $request, Note $note)
     {
         $validator = $request->validate([
-            'valeur'=> 'required'
+            'valeur'=> 'required',
+            'student_id'=> 'required|exists:students,id',
+            'cours_id' => 'required|exists:cours,id'
         ]);
 
         $note->update($validator);
@@ -67,6 +80,7 @@ class NoteController extends Controller
         $data = [
             'status'=> 200,
             'message'=> 'Note updated succesfully',
+            'note'=> $note
         ];
         return response()->json($data, 200);
     }

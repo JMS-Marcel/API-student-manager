@@ -2,33 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class AuthController extends Controller
+class TeacherAuthController extends Controller
 {
     public function login(Request $request)
     {
         $validator = $request->validate([
-            'email'=> 'required|email|exists:admins',
+            'email'=> 'required|email|exists:teachers',
             'password'=> 'required',
         ]);
 
-        $admin = Admin::where('email', $request->email)->first();
+        $teacher = Teacher::where('email', $request->email)->first();
 
-        if(!$admin || !Hash::check($request->password, $admin->password)){
+        if(!$teacher || !Hash::check($request->password, $teacher->password)){
             return [
                 'message' => 'password incorrect'
             ];
         }
 
-        $token = $admin->createToken($admin->nom);
+        $token = $teacher->createToken($teacher->nom);
 
         $data = [
             'status' => 200,
-            'message' => 'Admin login succesfully',
-            'admin' => $admin,
+            'message' => 'Teacher login succesfully',
+            'teacher' => $teacher,
             'token' => $token->plainTextToken
         ];
 
@@ -38,9 +39,12 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();
-        return [
-            'message' => 'You are logout'
+        $data = [
+            'status' => 200,
+            'message' => 'You are logged out'
         ];
+
+        return response()->json($data, 200);
     }
 
 }

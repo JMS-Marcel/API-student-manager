@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Support\Facades\Gate;
 
-class TeacherController extends Controller
+class TeacherController extends Controller implements HasMiddleware
 {
+    public static function middleware()
+    {
+        return [
+            new Middleware('auth:sanctum', except: ['index', 'show']),
+        ];
+    }
     /**
      * Display a listing of the resource.
      */
@@ -41,9 +50,12 @@ class TeacherController extends Controller
 
         $teacher = Teacher::create($validator);
 
+        $token = $teacher->createToken($request->nom);
+
         $data = [
             'status' => 200,
             'message' => 'data was stored succesfully',
+            'token' => $token->plainTextToken,
             'teacher' => $teacher
         ];
         return response()->json($data, 200);
@@ -66,6 +78,8 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
+        Gate::authorize('modify', $teacher);
+
         $validator = $request->validate([
             'nom' => 'required|max:255',
             'prenom' => 'required|max:255',
@@ -92,6 +106,8 @@ class TeacherController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
+        Gate::authorize('modify', $teacher);
+
         $teacher->delete();
 
         $data = [

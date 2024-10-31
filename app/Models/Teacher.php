@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 class Teacher extends Model
 {
-    use HasFactory;
+    use HasFactory, HasApiTokens;
 
     protected $fillable = [
         'nom',
@@ -17,4 +18,9 @@ class Teacher extends Model
         'phone',
         'email',
     ];
+
+    public function cours()
+    {
+        return $this->hasMany(Cours::class, 'teacher_id');
+    }
 }

@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Cours;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
-class CoursController extends Controller
+class CoursController extends Controller implements HasMiddleware
 {
+    public static function middleware()
+    {
+        return [
+            new Middleware('auth:sanctum', except: ['index', 'show']),
+        ];
+    }
     /**
      * Display a listing of the resource.
      */
@@ -28,12 +36,15 @@ class CoursController extends Controller
     {
         $validator = $request->validate([
             'nom'=> 'required|max:255',
+            'description'=> 'required',
+            'teacher_id' => 'required|exists:teachers,id'
         ]);
         
-        Cours::create($validator);
+        $cours = Cours::create($validator);
         $data = [
             'status' => 200,
-            'message' => 'data stored succesfully'
+            'message' => 'data stored succesfully',
+            'cours' => $cours
         ];
         return response()->json($data, 200);
     }
@@ -58,6 +69,8 @@ class CoursController extends Controller
     {
         $validator = $request->validate([
             'nom'=> 'required|max:255',
+            'description'=> 'required',
+            'teacher_id' => 'required|exists:teachers,id'
         ]);
         
         $cours = Cours::findOrFail($id);

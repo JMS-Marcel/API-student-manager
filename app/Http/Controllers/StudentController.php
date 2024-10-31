@@ -4,11 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
 
-class StudentController extends Controller
+class StudentController extends Controller implements HasMiddleware
 {
+    public static function middleware()
+    {
+        return [
+            new Middleware('auth:sanctum', except: ['index', 'show']),
+        ];
+    }
     /**
      * Display a listing of the resource.
      */
@@ -44,6 +53,8 @@ class StudentController extends Controller
         
         $student = Student::create($validator);
 
+        $token = $student->createToken($request->nom);
+
         if ($request->has('courses')) {
             $student->cours()->attach($request->courses);
         }
@@ -51,6 +62,7 @@ class StudentController extends Controller
         $data = [
             'status' => 200,
             'message' => 'Data stored succefully!',
+            'token' => $token->plainTextToken,
             'relationship'=> $student->load('cours')
         ];
 
@@ -75,6 +87,8 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
+        Gate::authorize('modify', $student);
+
         $validator = $request->validate([
             'nom' => 'required|max:255',
             'prenom' => 'required|max:255',
@@ -107,6 +121,8 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
+        Gate::authorize('modify', $student);
+
         $student->delete();
 
         $data = [
