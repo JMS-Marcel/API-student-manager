@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Support\Facades\Gate;
 
 class TeacherController extends Controller implements HasMiddleware
 {
@@ -77,6 +78,8 @@ class TeacherController extends Controller implements HasMiddleware
      */
     public function update(Request $request, Teacher $teacher)
     {
+        Gate::authorize('modify', $teacher);
+
         $validator = $request->validate([
             'nom' => 'required|max:255',
             'prenom' => 'required|max:255',
@@ -103,6 +106,8 @@ class TeacherController extends Controller implements HasMiddleware
      */
     public function destroy(Teacher $teacher)
     {
+        Gate::authorize('modify', $teacher);
+
         $teacher->delete();
 
         $data = [
