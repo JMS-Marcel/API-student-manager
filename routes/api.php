@@ -10,6 +10,11 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\StudentAuthController;
 use App\Http\Controllers\TeacherAuthController;
+use Illuminate\Http\Request;
+
+Route::get('/user', function(Request $request){
+  return $request->user();
+})->middleware('auth:sanctum');
 
 //Auth admin
 Route::post('login', [AuthAdminController::class, 'login']);
