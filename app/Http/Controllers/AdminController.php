@@ -6,6 +6,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller implements HasMiddleware
@@ -77,6 +78,8 @@ class AdminController extends Controller implements HasMiddleware
      */
     public function update(Request $request, Admin $admin)
     {
+        Gate::authorize('modify', $admin);
+
         $validator = $request->validate([
             'nom'=> 'required|max:255',
             'prenom'=> 'required|max:255',
@@ -99,8 +102,10 @@ class AdminController extends Controller implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Admin $admin)
+    public function destroy(Admin $admin, Request $request)
     {
+        Gate::authorize('modify', $request);
+
         $admin->delete();
         $data = [
             'status'=> 200,
