@@ -2,10 +2,10 @@ import './bootstrap';
 
 import { createApp } from "vue";
 
-import UserList from "./components/UserList.vue"
+import HomePage from "./pages/HomePage.vue"
 
 const app = createApp();
 
-app.component('userList', UserList );
+app.component('homePage', HomePage );
 
 app.mount('#app');

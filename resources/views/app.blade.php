@@ -8,8 +8,7 @@
 <body>
 
   <div id="app">
-    <user-list/>
-    @yield('content')
+    <home-page/>
   </div>
 </body>
 </html>
