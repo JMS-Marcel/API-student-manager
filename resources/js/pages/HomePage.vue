@@ -479,7 +479,7 @@
             >
               <div class="mt-16">
                 <img
-                  src="../../images/hero/hero-image.jpg"
+                  src="images/hero/hero-image.jpg"
                   alt="hero"
                   class="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
                 />
@@ -1887,7 +1887,7 @@
                     class="mb-4 sm:mb-8 sm:h-[400px] md:h-[540px] lg:h-[400px] xl:h-[500px]"
                   >
                     <img
-                      src="./../../images/about/about-image-01.jpg"
+                      src="images/about/about-image-01.jpg"
                       alt="about image"
                       class="h-full w-full object-cover object-center"
                     />
@@ -1899,7 +1899,7 @@
                     class="mb-4 sm:mb-8 sm:h-[220px] md:h-[346px] lg:mb-4 lg:h-[225px] xl:mb-8 xl:h-[310px]"
                   >
                     <img
-                      src="./../../images/about/about-image-02.jpg"
+                      src="images/about/about-image-02.jpg"
                       alt="about image"
                       class="h-full w-full object-cover object-center"
                     />
@@ -2353,23 +2353,23 @@
                 >
                   <div class="mb-[18px] flex items-center gap-[2px]">
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                   </div>
@@ -2382,7 +2382,7 @@
                   <a href="#" class="flex items-center gap-4">
                     <div class="h-[50px] w-[50px] overflow-hidden rounded-full">
                       <img
-                        src="./../../images/testimonials/author-01.jpg"
+                        src="images/testimonials/author-01.jpg"
                         alt="author"
                         class="h-[50px] w-[50px] overflow-hidden rounded-full"
                       />
@@ -2406,23 +2406,23 @@
                 >
                   <div class="mb-[18px] flex items-center gap-[2px]">
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                   </div>
@@ -2435,7 +2435,7 @@
                   <a href="#" class="flex items-center gap-4">
                     <div class="h-[50px] w-[50px] overflow-hidden rounded-full">
                       <img
-                        src="./../../images/testimonials/author-02.jpg"
+                        src="images/testimonials/author-02.jpg"
                         alt="author"
                         class="h-[50px] w-[50px] overflow-hidden rounded-full"
                       />
@@ -2461,23 +2461,23 @@
                 >
                   <div class="mb-[18px] flex items-center gap-[2px]">
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                   </div>
@@ -2490,7 +2490,7 @@
                   <a href="#" class="flex items-center gap-4">
                     <div class="h-[50px] w-[50px] overflow-hidden rounded-full">
                       <img
-                        src="./../../images/testimonials/author-03.jpg"
+                        src="images/testimonials/author-03.jpg"
                         alt="author"
                         class="h-[50px] w-[50px] overflow-hidden rounded-full"
                       />
@@ -2516,23 +2516,23 @@
                 >
                   <div class="mb-[18px] flex items-center gap-[2px]">
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                   </div>
@@ -2545,7 +2545,7 @@
                   <a href="#" class="flex items-center gap-4">
                     <div class="h-[50px] w-[50px] overflow-hidden rounded-full">
                       <img
-                        src="./../../images/testimonials/author-01.jpg"
+                        src="images/testimonials/author-01.jpg"
                         alt="author"
                         class="h-[50px] w-[50px] overflow-hidden rounded-full"
                       />
@@ -2569,23 +2569,23 @@
                 >
                   <div class="mb-[18px] flex items-center gap-[2px]">
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                   </div>
@@ -2598,7 +2598,7 @@
                   <a href="#" class="flex items-center gap-4">
                     <div class="h-[50px] w-[50px] overflow-hidden rounded-full">
                       <img
-                        src="./../../images/testimonials/author-02.jpg"
+                        src="images/testimonials/author-02.jpg"
                         alt="author"
                         class="h-[50px] w-[50px] overflow-hidden rounded-full"
                       />
@@ -2624,23 +2624,23 @@
                 >
                   <div class="mb-[18px] flex items-center gap-[2px]">
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                     <img
-                      src="./../../images/testimonials/icon-star.svg"
+                      src="images/testimonials/icon-star.svg"
                       alt="star icon"
                     />
                   </div>
@@ -2653,7 +2653,7 @@
                   <a href="#" class="flex items-center gap-4">
                     <div class="h-[50px] w-[50px] overflow-hidden rounded-full">
                       <img
-                        src="./../../images/testimonials/author-03.jpg"
+                        src="images/testimonials/author-03.jpg"
                         alt="author"
                         class="h-[50px] w-[50px] overflow-hidden rounded-full"
                       />
@@ -3499,7 +3499,7 @@
             >
               <div class="relative z-10 mx-auto mb-5 h-[120px] w-[120px]">
                 <img
-                  src="./../../images/team/team-01.png"
+                  src="images/team/team-01.png"
                   alt="team image"
                   class="h-[120px] w-[120px] rounded-full"
                 />
@@ -3811,7 +3811,7 @@
             >
               <div class="relative z-10 mx-auto mb-5 h-[120px] w-[120px]">
                 <img
-                  src="https://cdn.tailgrids.com/1.0/../../images/team/image-07/image-02.png"
+                  src="https://cdn.tailgrids.com/1.0/images/team/image-07/image-02.png"
                   alt="team image"
                   class="h-[120px] w-[120px] rounded-full"
                 />
@@ -4015,7 +4015,7 @@
             >
               <div class="relative z-10 mx-auto mb-5 h-[120px] w-[120px]">
                 <img
-                  src="https://cdn.tailgrids.com/1.0/../../images/team/image-07/image-03.png"
+                  src="https://cdn.tailgrids.com/1.0/images/team/image-07/image-03.png"
                   alt="team image"
                   class="h-[120px] w-[120px] rounded-full"
                 />
@@ -4219,7 +4219,7 @@
             >
               <div class="relative z-10 mx-auto mb-5 h-[120px] w-[120px]">
                 <img
-                  src="https://cdn.tailgrids.com/1.0/../../images/team/image-07/image-04.png"
+                  src="https://cdn.tailgrids.com/1.0/images/team/image-07/image-04.png"
                   alt="team image"
                   class="h-[120px] w-[120px] rounded-full"
                 />
@@ -4449,7 +4449,7 @@
               <div class="mb-8 overflow-hidden rounded-[5px]">
                 <a href="blog-details.html" class="block">
                   <img
-                    src="./../../images/blog/blog-01.jpg"
+                    src="images/blog/blog-01.jpg"
                     alt="image"
                     class="w-full transition group-hover:rotate-6 group-hover:scale-125"
                   />
@@ -4483,7 +4483,7 @@
               <div class="mb-8 overflow-hidden rounded-[5px]">
                 <a href="blog-details.html" class="block">
                   <img
-                    src="./../../images/blog/blog-02.jpg"
+                    src="images/blog/blog-02.jpg"
                     alt="image"
                     class="w-full transition group-hover:rotate-6 group-hover:scale-125"
                   />
@@ -4517,7 +4517,7 @@
               <div class="mb-8 overflow-hidden rounded-[5px]">
                 <a href="blog-details.html" class="block">
                   <img
-                    src="./../../images/blog/blog-03.jpg"
+                    src="images/blog/blog-03.jpg"
                     alt="image"
                     class="w-full transition group-hover:rotate-6 group-hover:scale-125"
                   />
@@ -4721,60 +4721,60 @@
         >
           <a href="https://graygrids.com/">
             <img
-              src="./../../images/brands/graygrids.svg"
+              src="images/brands/graygrids.svg"
               alt="graygrids"
               class="dark:hidden"
             />
             <img
-              src="./../../images/brands/graygrids-white.svg"
+              src="images/brands/graygrids-white.svg"
               alt="graygrids"
               class="hidden dark:block"
             />
           </a>
           <a href="https://lineicons.com/">
             <img
-              src="./../../images/brands/lineicons.svg"
+              src="images/brands/lineicons.svg"
               alt="lineicons"
               class="dark:hidden"
             />
             <img
-              src="./../../images/brands/lineicons-white.svg"
+              src="images/brands/lineicons-white.svg"
               alt="graygrids"
               class="hidden dark:block"
             />
           </a>
           <a href="https://uideck.com/">
             <img
-              src="./../../images/brands/uideck.svg"
+              src="images/brands/uideck.svg"
               alt="uideck"
               class="dark:hidden"
             />
             <img
-              src="./../../images/brands/uideck-white.svg"
+              src="images/brands/uideck-white.svg"
               alt="graygrids"
               class="hidden dark:block"
             />
           </a>
           <a href="https://ayroui.com/">
             <img
-              src="./../../images/brands/ayroui.svg"
+              src="images/brands/ayroui.svg"
               alt="ayroui"
               class="dark:hidden"
             />
             <img
-              src="./../../images/brands/ayroui-white.svg"
+              src="images/brands/ayroui-white.svg"
               alt="graygrids"
               class="hidden dark:block"
             />
           </a>
           <a href="https://tailgrids.com/">
             <img
-              src="./../../images/brands/tailgrids.svg"
+              src="images/brands/tailgrids.svg"
               alt="tailgrids"
               class="dark:hidden"
             />
             <img
-              src="./../../images/brands/tailgrids-white.svg"
+              src="images/brands/tailgrids-white.svg"
               alt="graygrids"
               class="hidden dark:block"
             />
@@ -4798,7 +4798,7 @@
                 class="mb-6 inline-block max-w-[160px]"
               >
                 <img
-                  src="../../images/logo/logo-white.svg"
+                  src="images/logo-white.svg"
                   alt="logo"
                   class="max-w-full"
                 />
@@ -5014,7 +5014,7 @@
                 >
                   <div class="overflow-hidden rounded">
                     <img
-                      src="../../images/blog/blog-footer-01.jpg"
+                      src="images/blog/blog-footer-01.jpg"
                       alt="blog"
                     />
                   </div>
@@ -5030,7 +5030,7 @@
                 >
                   <div class="overflow-hidden rounded">
                     <img
-                      src="./../../images/blog/blog-footer-02.jpg"
+                      src="images/blog/blog-footer-02.jpg"
                       alt="blog"
                     />
                   </div>
@@ -5098,11 +5098,11 @@
 
       <div>
         <span class="absolute left-0 top-0 z-[-1]">
-          <img src="../../images/footer/shape-1.svg" alt="" />
+          <img src="images/footer/shape-1.svg" alt="" />
         </span>
 
         <span class="absolute bottom-0 right-0 z-[-1]">
-          <img src="../../images/footer/shape-3.svg" alt="" />
+          <img src="images/footer/shape-3.svg" alt="" />
         </span>
 
         <span class="absolute right-0 top-0 z-[-1]">
