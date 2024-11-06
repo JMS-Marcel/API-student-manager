@@ -1,7 +1,7 @@
 import './bootstrap';
 
 import { createApp } from "vue";
-import router from './router/router'
+import router from './router'
 import HomePage from "./pages/HomePage.vue"
 
 const app = createApp();
