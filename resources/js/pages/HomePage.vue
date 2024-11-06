@@ -8,7 +8,7 @@
           <div class="w-60 max-w-full px-4">
             <a href="index.html" class="navbar-logo block w-full py-5">
               <img
-                src="../../images/logo/logo-white.svg"
+                src="/logo.svg"
                 alt="logo"
                 class="header-logo w-full"
               />
@@ -5014,7 +5014,7 @@
                 >
                   <div class="overflow-hidden rounded">
                     <img
-                      src="./../../images/blog/blog-footer-01.jpg"
+                      src="../../images/blog/blog-footer-01.jpg"
                       alt="blog"
                     />
                   </div>
@@ -5376,6 +5376,3 @@
     <!-- ====== Back To Top End -->
 </template>
 
-<script setup>
-
-</script>
