@@ -7,5 +7,7 @@ import HomePage from "./pages/HomePage.vue"
 const app = createApp();
 
 app.component('homePage', HomePage );
+
 app.use(router);
+
 app.mount('#app');
