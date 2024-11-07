@@ -2,7 +2,7 @@ import './bootstrap';
 
 import { createApp } from "vue";
 import router from './router'
-import HomePage from "./pages/AuthPage.vue"
+import HomePage from "./Auth/RegisterPage.vue"
 
 const app = createApp();
 
