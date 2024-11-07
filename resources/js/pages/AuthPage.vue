@@ -12,8 +12,8 @@ import navBar from "../components/navBar.vue";
     </div>
 
     <div class="flex justify-center gap-8 p-6">
-      <a href="#">
-        <div class="admin p-4 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
+      <a href="#" class="ml-7">
+        <div class="admin p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 48 48">
             <path fill="#ff9800" d="m24 37l-5-6v-6h10v6z" />
             <g fill="#ffa726">
@@ -30,9 +30,10 @@ import navBar from "../components/navBar.vue";
             <path fill="#3f51b5" d="m23 35l-1 9h4l-1-9l1-1l-2-2l-2 2z" />
           </svg>
         </div>
+        <p align="center" class="m-1">Admin</p>
       </a>
-      <a href="#">
-        <div class="teacher p-4 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
+      <a href="#" class="ml-7">
+        <div class="teacher p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 32 32">
             <g fill="none">
               <g filter="url(#f1319id2c)">
@@ -1015,10 +1016,11 @@ import navBar from "../components/navBar.vue";
             </g>
           </svg>
         </div>
+        <p align="center" class="m-1">Enseignant</p>
       </a>
 
-      <a href="#">
-        <div class="atudent p-4 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
+      <a href="#" class="ml-7">
+        <div class="atudent p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 128 128">
             <path fill="#e59600"
               d="M73.76 89.08H54.23v19.33c0 4.85 3.98 8.78 8.88 8.78h1.77c4.9 0 8.88-3.93 8.88-8.78zm17.57-38.67H36.67c-5.89 0-10.71 5.14-10.71 11.41c0 6.28 4.82 11.41 10.71 11.41h54.65c5.89 0 10.71-5.14 10.71-11.41c.01-6.27-4.81-11.41-10.7-11.41" />
@@ -1087,6 +1089,7 @@ import navBar from "../components/navBar.vue";
               d="M114.5 120.99c0-14.61-21.75-21.54-40.72-23.1l-8.6 11.03c-.28.36-.72.58-1.18.58s-.9-.21-1.18-.58L54.2 97.87c-10.55.81-40.71 4.75-40.71 23.12V124h101z" />
           </svg>
         </div>
+        <p align="center" class="m-1">Etudiant</p>
       </a>
     </div>
 
