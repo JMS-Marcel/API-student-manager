@@ -12,7 +12,7 @@ import navBar from "../components/navBar.vue";
     </div>
 
     <div class="flex justify-center gap-8 p-6">
-      <a href="#" class="ml-7">
+      <router-link to="login" class="ml-7">
         <div class="admin p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 48 48">
             <path fill="#ff9800" d="m24 37l-5-6v-6h10v6z" />
@@ -31,7 +31,7 @@ import navBar from "../components/navBar.vue";
           </svg>
         </div>
         <p align="center" class="m-1">Admin</p>
-      </a>
+      </router-link>
       <a href="#" class="ml-7">
         <div class="teacher p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 32 32">
