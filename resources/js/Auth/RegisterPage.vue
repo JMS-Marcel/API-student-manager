@@ -50,7 +50,7 @@
                 </button>
               </div>
 
-              <p class="text-sm !mt-8 text-center text-gray-800">Don't have an account <a href="javascript:void(0);" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
+              <p class="text-sm !mt-8 text-center text-gray-800">Don't have an account <router-link to="/login" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">login here</router-link></p>
             </form>
           </div>
           <div class="lg:h-[400px] md:h-[300px] max-md:mt-8">
