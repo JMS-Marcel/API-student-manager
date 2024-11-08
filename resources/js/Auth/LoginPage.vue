@@ -1,11 +1,11 @@
 <template>
   <div class="font-[sans-serif]">
-        <div class="min-h-screen flex flex-col items-center justify-center py-6 px-4">
+        <div class="min-h-screen flex fle-col items-center justify-center">
           <div class="grid md:grid-cols-2 items-center gap-4 max-w-6xl w-full">
             <div class="border border-gray-300 rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto">
               <form class="space-y-4">
                 <div class="mb-8">
-                  <h3 class="text-gray-800 text-3xl font-extrabold">Login</h3>
+                  <h3 class="text-gray-800 text-3xl font-extrabold">Sign in</h3>
                   <p class="text-gray-500 text-sm mt-4 leading-relaxed">Sign in to your account and explore a world of possibilities. Your journey begins here.</p>
                 </div>
   
@@ -38,7 +38,7 @@
                   </div>
   
                   <div class="text-sm">
-                    <a href="javascript:void(0);" class="text-blue-600 hover:underline font-semibold">
+                    <a href="jajvascript:void(0);" class="text-blue-600 hover:underline font-semibold">
                       Forgot your password?
                     </a>
                   </div>
@@ -53,8 +53,8 @@
                 <p class="text-sm !mt-8 text-center text-gray-800">Don't have an account <router-link to="/register" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</router-link></p>
               </form>
             </div>
-            <div class="lg:h-[400px] md:h-[300px] max-md:mt-8">
-              <img src="/images/blog/blog-details-01.jpg" class="h-full " alt="Dining Experience" />
+            <div>
+              <img src="/images/contactlogin.png" class="w-full h-full max-[600px]:hidden sm:hidden xs:hidden md:block object-cover rounded-md" alt="student" />
             </div>
           </div>
         </div>
