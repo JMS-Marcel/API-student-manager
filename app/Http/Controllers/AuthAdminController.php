@@ -18,10 +18,11 @@ class AuthAdminController extends Controller
         $admin = Admin::where('email', $request->email)->first();
 
         if(!$admin || !Hash::check($request->password, $admin->password)){
-            return [
+            $data = [
                 'status' => 422,
                 'message' => 'password incorrect'
             ];
+            return response()->json($data, 422);
         }
 
         $token = $admin->createToken($admin->nom);
