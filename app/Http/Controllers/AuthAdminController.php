@@ -19,6 +19,7 @@ class AuthAdminController extends Controller
 
         if(!$admin || !Hash::check($request->password, $admin->password)){
             return [
+                'status' => 422,
                 'message' => 'password incorrect'
             ];
         }
