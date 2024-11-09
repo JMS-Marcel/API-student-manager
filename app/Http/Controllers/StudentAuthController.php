@@ -19,9 +19,11 @@ class StudentAuthController extends Controller
         $student = Student::where('email', $request->email)->first();
 
         if(!$student || !Hash::check($request->password, $student->password)){
-            return [
+            $data = [
+                'status' => 422,
                 'message' => 'password incorrect'
             ];
+            return response()->json($data, 422);
         }
 
         $token = $student->createToken($student->nom);
