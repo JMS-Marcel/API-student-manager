@@ -41,7 +41,7 @@ const StoreRole = (role) => localStorage.setItem('role', role)
       </router-link>
 
       <!-- Teacher -->
-      <a href="login" 
+      <router-link to="login" 
       @click="StoreRole('teacher')"
        class="ml-7">
         <div class="teacher p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
@@ -1028,10 +1028,10 @@ const StoreRole = (role) => localStorage.setItem('role', role)
           </svg>
         </div>
         <p align="center" class="m-1">Enseignant</p>
-      </a>
+      </router-link>
 
       <!-- Student -->
-      <a href="/login" 
+      <router-link to="/login" 
       @click="StoreRole('student')"
        class="ml-7">
         <div class="atudent p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
@@ -1104,7 +1104,7 @@ const StoreRole = (role) => localStorage.setItem('role', role)
           </svg>
         </div>
         <p align="center" class="m-1">Etudiant</p>
-      </a>
+      </router-link>
     </div>
 
   </div>
