@@ -17,8 +17,7 @@ const onSubmit = async () => {
     if(res.data.token){
       localStorage.setItem('token', res.data.token)
       alert('Connexion réussie !')
-      router.push('/')
-      
+        router.push('/dashboard')
     }
 
   })
