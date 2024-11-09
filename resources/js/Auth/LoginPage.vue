@@ -20,8 +20,13 @@ const onSubmit = async () => {
     }
 
   })
-  .catch((error) => 
+  .catch((error) => {
+    if(typeof(error.request.response) == "string")
     errorMessage.value = JSON.parse(error.request.response)
+    else{
+    errorMessage.value = error.request.response
+    }
+  }
   )
 
 }
