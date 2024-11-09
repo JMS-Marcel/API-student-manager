@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const email = ref('')
 const password = ref('')
 const errorMessage = ref('')
-const data = ref()
 
 const onSubmit = async () => {
   await axios.post('/api/login', {
@@ -16,6 +17,7 @@ const onSubmit = async () => {
     if(res.data.token){
       localStorage.setItem('token', res.data.token)
       alert('Connexion réussie !')
+      router.push('/')
       
     }
 
