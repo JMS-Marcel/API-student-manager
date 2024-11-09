@@ -1,18 +1,25 @@
 <script setup>
 import navBar from "../components/navBar.vue";
+
+const StoreRole = (role) => localStorage.setItem('role', role)
+
 </script>
 <template>
   <navBar />
   <div class="bg-gray-50 m-20 p-8 rounded-lg shadow-md">
     <div class="flex flex-col items-center text-center w-max m-auto ">
-      <h1 class="m-2 md:text-6xl font-medium text-primary">Welcome to EduTrack !</h1>
+      <h1 class="m-2 sm:text-2xl md:text-6xl font-medium text-primary">Welcome to EduTrack !</h1>
       <h1 class="m-2 text-5xl font-medium text-primary">Let's get's started !</h1>
       <p class="m-2 text-xl">Signup as a...</p>
 
     </div>
 
     <div class="flex justify-center gap-8 p-6">
-      <router-link to="login" class="ml-7">
+      <!-- admin -->
+      <router-link 
+      @click="StoreRole('admin')"
+      to="login" 
+      class="ml-7">
         <div class="admin p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 48 48">
             <path fill="#ff9800" d="m24 37l-5-6v-6h10v6z" />
@@ -32,7 +39,11 @@ import navBar from "../components/navBar.vue";
         </div>
         <p align="center" class="m-1">Admin</p>
       </router-link>
-      <a href="#" class="ml-7">
+
+      <!-- Teacher -->
+      <a href="login" 
+      @click="StoreRole('teacher')"
+       class="ml-7">
         <div class="teacher p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 32 32">
             <g fill="none">
@@ -1019,7 +1030,10 @@ import navBar from "../components/navBar.vue";
         <p align="center" class="m-1">Enseignant</p>
       </a>
 
-      <a href="#" class="ml-7">
+      <!-- Student -->
+      <a href="/login" 
+      @click="StoreRole('student')"
+       class="ml-7">
         <div class="atudent p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 128 128">
             <path fill="#e59600"
