@@ -10,7 +10,7 @@ class AuthAdminController extends Controller
 {
     public function login(Request $request)
     {
-        $validator = $request->validate([
+       $request->validate([
             'email'=> 'required|email|exists:admins',
             'password'=> 'required',
         ]);

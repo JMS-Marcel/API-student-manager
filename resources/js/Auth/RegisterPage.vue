@@ -1,9 +1,60 @@
+<script setup>
+import { ref } from 'vue'
+import axios from 'axios'
+import { useRouter } from 'vue-router'
+
+const role = localStorage.getItem("role")
+
+const router = useRouter()
+
+const nom = ref('')
+const prenom = ref('')
+const email = ref('')
+const date_naissance = ref('')
+const password = ref('')
+const password_confirmation = ref('')
+const phone = ref('')
+const errorMessage = ref('')
+  //admin
+const SignIn = () => {
+  axios.post("/api/"+role, {
+    "nom": nom.value,
+    "prenom": prenom.value,
+    "email": email.value,
+    "password": password.value,
+    "password_confirmation": password_confirmation.value,
+    "date_naissance": date_naissance.value,
+    "phone": phone.value
+  })
+    .then((res) => {
+      if (res.data.token) {
+        localStorage.setItem('token', res.data.token)
+        alert('Connexion réussie !')
+        router.push('/dashboard')
+      }
+
+    })
+    .catch((error) => {
+      console.log(error);
+      if (typeof (error.request.response) == "string")
+        errorMessage.value = JSON.parse(error.request.response)
+      else {
+        errorMessage.value = error.request.response
+      }
+    }
+    )
+
+}
+</script>
 <template>
+    <div v-if="errorMessage" class="flex justify-center w-full p-2 bg-red-400">
+    <p>{{ errorMessage.message }}</p>
+  </div>
 <div class="font-[sans-serif]">
       <div class="min-h-screen flex fle-col items-center justify-center">
         <div class="grid md:grid-cols-2 items-center gap-4 max-w-6xl w-full">
           <div class="border border-gray-300 rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto">
-            <form class="space-y-4">
+            <form method="post" class="space-y-4" @submit.prevent="SignIn">
               <div class="mb-8">
                 <h3 class="text-gray-800 text-3xl font-extrabold">Sign in</h3>
                 <p class="text-gray-500 text-sm mt-4 leading-relaxed">Sign in to your account and explore a world of possibilities. Your journey begins here.</p>
@@ -12,7 +63,17 @@
               <div>
                 <label class="text-gray-800 text-sm mb-2 block">User name</label>
                 <div class="relative flex items-center">
-                  <input name="username" type="text" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600" placeholder="Enter user name" />
+                  <input v-model="nom" name="nom" type="text" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600" placeholder="Enter user name" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4" viewBox="0 0 24 24">
+                    <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
+                    <path d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z" data-original="#000000"></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <label class="text-gray-800 text-sm mb-2 block">Email</label>
+                <div class="relative flex items-center">
+                  <input v-model="email" name="email" type="email" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600" placeholder="Enter user name" />
                   <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4" viewBox="0 0 24 24">
                     <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
                     <path d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z" data-original="#000000"></path>
@@ -22,7 +83,16 @@
               <div>
                 <label class="text-gray-800 text-sm mb-2 block">Password</label>
                 <div class="relative flex items-center">
-                  <input name="password" type="password" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600" placeholder="Enter password" />
+                  <input v-model="password" name="password" type="password" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600" placeholder="Enter password" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4 cursor-pointer" viewBox="0 0 128 128">
+                    <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <label class="text-gray-800 text-sm mb-2 block">Confirmation Password</label>
+                <div class="relative flex items-center">
+                  <input v-model="password_confirmation" name="password_confirmation" type="password" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600" placeholder="Enter password" />
                   <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4 cursor-pointer" viewBox="0 0 128 128">
                     <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
                   </svg>
@@ -38,14 +108,14 @@
                 </div>
 
                 <div class="text-sm">
-                  <a href="jajvascript:void(0);" class="text-blue-600 hover:underline font-semibold">
+                  <a href="#;" class="text-blue-600 hover:underline font-semibold">
                     Forgot your password?
                   </a>
                 </div>
               </div>
 
               <div class="!mt-8">
-                <button type="button" class="w-full shadow-xl py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-primary hover:bg-blue-700 focus:outline-none">
+                <button type="submit" class="w-full shadow-xl py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-primary hover:bg-blue-700 focus:outline-none">
                   Log in
                 </button>
               </div>
@@ -53,8 +123,37 @@
               <p class="text-sm !mt-8 text-center text-gray-800">Don't have an account <router-link to="/login" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Login here</router-link></p>
             </form>
           </div>
-          <div>
-            <img src="/images/contactlogin.png" class="w-full h-full max-[600px]:hidden sm:hidden xs:hidden md:block object-cover rounded-md" alt="student" />
+          <div class="form-2">
+            <div>
+                <label class="text-gray-800 text-sm mb-2 block">Prenom</label>
+                <div class="relative flex items-center">
+                  <input v-model="prenom" name="prenom" type="text" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600" placeholder="Enter user name" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4" viewBox="0 0 24 24">
+                    <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
+                    <path d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z" data-original="#000000"></path>
+                  </svg>
+                </div>
+              </div>
+            <div>
+                <label class="text-gray-800 text-sm mb-2 block">Date de naissance</label>
+                <div class="relative flex items-center">
+                  <input v-model="date_naissance" name="date_naissance" type="date" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600" placeholder="Enter user name" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4" viewBox="0 0 24 24">
+                    <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
+                    <path d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z" data-original="#000000"></path>
+                  </svg>
+                </div>
+              </div>
+            <div>
+                <label class="text-gray-800 text-sm mb-2 block">Phone</label>
+                <div class="relative flex items-center">
+                  <input v-model="phone" name="phone" type="text" required class="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600" placeholder="Enter user name" />
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4" viewBox="0 0 24 24">
+                    <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
+                    <path d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z" data-original="#000000"></path>
+                  </svg>
+                </div>
+              </div>
           </div>
         </div>
       </div>

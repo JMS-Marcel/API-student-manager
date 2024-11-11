@@ -14,7 +14,7 @@ class TeacherController extends Controller implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('auth:sanctum', except: ['index', 'show']),
+            new Middleware('auth:sanctum', except: ['index', 'show', 'store']),
         ];
     }
     /**
