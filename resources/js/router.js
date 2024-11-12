@@ -29,10 +29,26 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard,
+    meta: { requiresAuth: true }
   },
 ];
 
-export default createRouter({
+const router = createRouter({
     history: createWebHistory(),
     routes,
+});
+
+export default router;
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    const isAuthenticated = Boolean(localStorage.getItem('token')); 
+    if (isAuthenticated) {
+      next(); // Autorise l'accès
+    } else {
+      next('/auth');
+    }
+  } else {
+    next(); // Si pas d'authentification requise, on continue
+  }
 });
