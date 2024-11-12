@@ -41,6 +41,7 @@ const router = createRouter({
 export default router;
 
 router.beforeEach((to, from, next) => {
+  
   if (to.meta.requiresAuth) {
     const isAuthenticated = Boolean(localStorage.getItem('token')); 
     if (isAuthenticated) {
