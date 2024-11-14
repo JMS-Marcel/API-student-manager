@@ -14,18 +14,26 @@ const date_naissance = ref('')
 const password = ref('')
 const password_confirmation = ref('')
 const phone = ref('')
-const errorMessage = ref('')
-  //admin
-const SignIn = () => {
-  axios.post("/api/"+role, {
-    "nom": nom.value,
-    "prenom": prenom.value,
-    "email": email.value,
-    "password": password.value,
-    "password_confirmation": password_confirmation.value,
-    "date_naissance": date_naissance.value,
-    "phone": phone.value
+const matricule = ref('')        
+const adresse = ref('') 
+
+const registerUser = () => {
+  const payload = {
+    nom: nom.value,
+    prenom: prenom.value,
+    email: email.value,
+    date_naissance: date_naissance.value,
+    password: password.value,
+    password_confirmation: password_confirmation.value,
+    phone: phone.value,
+    matricule: role === 'student' ? matricule.value : undefined,
+    adresse: role === 'student' ? adresse.value : undefined
+  }
+
+  Object.keys(payload).forEach(key => {
+    if (payload[key] === undefined) delete payload[key]
   })
+  axios.post(`/api/${role}`, payload)
     .then((res) => {
       if (res.data.token) {
         localStorage.setItem('token', res.data.token)
@@ -54,7 +62,7 @@ const SignIn = () => {
       <div class="min-h-screen flex fle-col items-center justify-center">
         <div class="grid md:grid-cols-2 items-center gap-4 max-w-6xl w-full">
           <div class="border border-gray-300 rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto">
-            <form method="post" class="space-y-4" @submit.prevent="SignIn">
+            <form method="post" class="space-y-4" @submit.prevent="registerUser">
               <div class="mb-8">
                 <h3 class="text-gray-800 text-3xl font-extrabold">Sign in</h3>
                 <p class="text-gray-500 text-sm mt-4 leading-relaxed">Sign in to your account and explore a world of possibilities. Your journey begins here.</p>
