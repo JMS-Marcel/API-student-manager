@@ -4,6 +4,7 @@ import Auth from './pages/AuthPage.vue';
 import Register from './Auth/RegisterPage.vue';
 import Login from './Auth/LoginPage.vue';
 import Dashboard from './dashboard/Dashboard.vue';
+import NotFound from './pages/NotFound.vue';
 const routes = [
   {
     path: '/',
@@ -30,6 +31,11 @@ const routes = [
     name: 'Dashboard',
     component: Dashboard,
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
   },
 ];
 
