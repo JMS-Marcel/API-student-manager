@@ -11,14 +11,13 @@ const logout = async () => {
   await axios.delete(`api/logout-${role}`, {headers:{
     Authorization:`Bearer ${token}`,
   }})
-  .then((res)=> {
-    console.log(res);
-    
-    // if (res.data.token) {
-    //     localStorage.removeItem('token')
-    //     alert('Deconnexion réussie !')
-    //     router.push('/auth')
-    //   }
+  .then((res)=> {          
+    if (res.data.status === 200) {
+        localStorage.removeItem('token')
+        localStorage.removeItem('role')
+        alert(res.data.message)
+        router.push('/auth')
+      }
   })
   .catch((error) => console.log(error))
 }
