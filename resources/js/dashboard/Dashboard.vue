@@ -1,6 +1,8 @@
 <script setup>
 import axios from 'axios';
+import { useRouter } from 'vue-router';
 
+const router = useRouter()
 const role = localStorage.getItem("role")
 
 const logout = async () => {
