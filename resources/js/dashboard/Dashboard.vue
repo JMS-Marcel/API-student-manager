@@ -4,9 +4,13 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter()
 const role = localStorage.getItem("role")
+const token = localStorage.getItem("token")
+
 
 const logout = async () => {
-  await axios.delete(`api/logout-${role}`)
+  await axios.delete(`api/logout-${role}`, {headers:{
+    Authorization:`Bearer ${token}`,
+  }})
   .then((res)=> {
     console.log(res);
     
