@@ -1,5 +1,5 @@
 <template>
-        <div class="flex items-center justify-center py-12">
+        <div class="flex items-center justify-center py-12 bg-slate-900 h-screen">
             <div class="bg-white border rounded-md flex items-center justify-center mx-4 md:w-2/3">
                 <div class="flex flex-col items-center py-16">
                     <img class="px-4 hidden md:block" src="https://i.ibb.co/9Vs73RF/undraw-page-not-found-su7k-1-3.png" />
