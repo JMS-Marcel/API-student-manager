@@ -1,5 +1,21 @@
 <script setup>
+import axios from 'axios';
+
 const role = localStorage.getItem("role")
+
+const logout = async () => {
+  await axios.delete(`api/logout-${role}`)
+  .then((res)=> {
+    console.log(res);
+    
+    // if (res.data.token) {
+    //     localStorage.removeItem('token')
+    //     alert('Deconnexion réussie !')
+    //     router.push('/auth')
+    //   }
+  })
+  .catch((error) => console.log(error))
+}
 
 </script>
 <template>
@@ -9,7 +25,7 @@ const role = localStorage.getItem("role")
       <div class="container">
         <div class="relative -mx-4 flex items-center justify-between">
           <div class="w-60 max-w-full px-4">
-            <a href="index.html" class="navbar-logo block w-full py-5">
+            <a href="#" class="navbar-logo block w-full py-5">
               <img
                 src="/logo.svg"
                 alt="logo"
