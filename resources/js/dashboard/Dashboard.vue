@@ -24,6 +24,7 @@ const logout = async () => {
 
 </script>
 <template>
+  <!-- Header -->
        <div
       class="ud-header absolute left-0 top-0 z-40 flex w-full items-center bg-transparent"
     >
@@ -145,9 +146,20 @@ const logout = async () => {
         </div>
       </div>
     </div>
-  <!-- Need authentification -->
-  <div class="w-full h-screen bg-slate-900">
-    <h1 class="text-5xl text-white text-center">DASHBOARD</h1>
-    <p class="text-center text-white p-4">Welcome! <span class="text-xl text-pink-500 shadow-lg-violet-500 ">{{ role }}</span></p>
-  </div>
+  <!-- Header end -->
+
+  <!-- Sidebar -->
+
+  <!-- Sidebar end -->
+   
+  <!-- Main -->
+   <main>
+    <slot></slot>
+     <div class="w-full h-screen bg-slate-900">
+       <h1 class="text-5xl text-white text-center">DASHBOARD</h1>
+       <p class="text-center text-white p-4">Welcome! <span class="text-xl text-pink-500 shadow-lg-violet-500 ">{{ role }}</span></p>
+     </div>
+   </main>
+  <!-- Main end-->
+
 </template>
