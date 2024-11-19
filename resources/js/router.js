@@ -56,6 +56,6 @@ router.beforeEach((to, from, next) => {
       next('/auth');
     }
   } else {
-    next(); // Si pas d'authentification requise, on continue
+    next();// on continue
   }
 });
