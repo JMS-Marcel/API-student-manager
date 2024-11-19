@@ -1,13 +1,15 @@
 import './bootstrap';
 
 import { createApp } from "vue";
+import { createPinia } from 'pinia';
 import router from './router'
-import HomePage from "./Auth/RegisterPage.vue"
+
 
 const app = createApp();
 
-app.component('homePage', HomePage );
 
+
+app.use(createPinia())
 app.use(router);
 
 app.mount('#app');
