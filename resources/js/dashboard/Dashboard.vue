@@ -1,6 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import axios from 'axios';
 import { useRouter } from 'vue-router';
+import { useSidebarStore } from '../../stores/sidebar';
+
+const {toggleSidebar} = useSidebarStore()
+const sidebarStore = useSidebarStore()
 
 const router = useRouter()
 const role = localStorage.getItem("role")
