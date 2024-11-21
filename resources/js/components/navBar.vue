@@ -7,7 +7,7 @@
           <div class="w-60 max-w-full px-4">
             <a href="index.html" class="navbar-logo block w-full py-5">
               <img
-                src="/logo.svg"
+                src="@/assets/images/logo/logo.svg"
                 alt="logo"
                 class="header-logo w-full"
               />

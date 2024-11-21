@@ -85,7 +85,7 @@ import navBar from "../components/navBar.vue";
             >
               <div class="mt-16">
                 <img
-                  src="images/hero/hero-image.jpg"
+                  src="@/assets/images/hero/hero-image.jpg"
                   alt="hero"
                   class="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
                 />
@@ -1493,7 +1493,7 @@ import navBar from "../components/navBar.vue";
                     class="mb-4 sm:mb-8 sm:h-[400px] md:h-[540px] lg:h-[400px] xl:h-[500px]"
                   >
                     <img
-                      src="images/about/about-image-01.jpg"
+                      src="@/assets/images/about/about-image-01.jpg"
                       alt="about image"
                       class="h-full w-full object-cover object-center"
                     />
@@ -1505,7 +1505,7 @@ import navBar from "../components/navBar.vue";
                     class="mb-4 sm:mb-8 sm:h-[220px] md:h-[346px] lg:mb-4 lg:h-[225px] xl:mb-8 xl:h-[310px]"
                   >
                     <img
-                      src="images/about/about-image-02.jpg"
+                      src="@/assets/images/about/about-image-02.jpg"
                       alt="about image"
                       class="h-full w-full object-cover object-center"
                     />
@@ -1916,7 +1916,7 @@ import navBar from "../components/navBar.vue";
     </section>
     <!-- ====== Contact End ====== -->
 
-    <!-- ====== Brands Section Start -->
+    <!-- ====== brands Section Start -->
     <section class="pb-20 dark:bg-dark">
       <div class="container px-4">
         <div
@@ -1924,60 +1924,60 @@ import navBar from "../components/navBar.vue";
         >
           <a href="https://graygrids.com/">
             <img
-              src="images/brands/graygrids.svg"
+              src="@/assets/images/brands/graygrids.svg"
               alt="graygrids"
               class="dark:hidden"
             />
             <img
-              src="images/brands/graygrids-white.svg"
+              src="@/assets/images/brands/graygrids-white.svg"
               alt="graygrids"
               class="hidden dark:block"
             />
           </a>
           <a href="https://lineicons.com/">
             <img
-              src="images/brands/lineicons.svg"
+              src="@/assets/images/brands/lineicons.svg"
               alt="lineicons"
               class="dark:hidden"
             />
             <img
-              src="images/brands/lineicons-white.svg"
+              src="@/assets/images/brands/lineicons-white.svg"
               alt="graygrids"
               class="hidden dark:block"
             />
           </a>
           <a href="https://uideck.com/">
             <img
-              src="images/brands/uideck.svg"
+              src="@/assets/images/brands/uideck.svg"
               alt="uideck"
               class="dark:hidden"
             />
             <img
-              src="images/brands/uideck-white.svg"
+              src="@/assets/images/brands/uideck-white.svg"
               alt="graygrids"
               class="hidden dark:block"
             />
           </a>
           <a href="https://ayroui.com/">
             <img
-              src="images/brands/ayroui.svg"
+              src="@/assets/images/brands/ayroui.svg"
               alt="ayroui"
               class="dark:hidden"
             />
             <img
-              src="images/brands/ayroui-white.svg"
+              src="@/assets/images/brands/ayroui-white.svg"
               alt="graygrids"
               class="hidden dark:block"
             />
           </a>
           <a href="https://tailgrids.com/">
             <img
-              src="images/brands/tailgrids.svg"
+              src="@/assets/images/brands/tailgrids.svg"
               alt="tailgrids"
               class="dark:hidden"
             />
             <img
-              src="images/brands/tailgrids-white.svg"
+              src="@/assets/images/brands/tailgrids-white.svg"
               alt="graygrids"
               class="hidden dark:block"
             />
@@ -1985,7 +1985,7 @@ import navBar from "../components/navBar.vue";
         </div>
       </div>
     </section>
-    <!-- ====== Brands Section End -->
+    <!-- ====== brands Section End -->
 
     <!-- ====== Footer Section Start -->
     <footer
@@ -2001,7 +2001,7 @@ import navBar from "../components/navBar.vue";
                 class="mb-6 inline-block max-w-[160px]"
               >
                 <img
-                  src="/logo-white.svg"
+                  src="@/assets/images/logo/logo.svg"
                   alt="logo"
                   class="max-w-full"
                 />
@@ -2217,7 +2217,7 @@ import navBar from "../components/navBar.vue";
                 >
                   <div class="overflow-hidden rounded">
                     <img
-                      src="images/blog/blog-footer-01.jpg"
+                      src="@/assets/images/blog/blog-footer-01.jpg"
                       alt="blog"
                     />
                   </div>
@@ -2233,7 +2233,7 @@ import navBar from "../components/navBar.vue";
                 >
                   <div class="overflow-hidden rounded">
                     <img
-                      src="images/blog/blog-footer-02.jpg"
+                      src="@/assets/images/blog/blog-footer-02.jpg"
                       alt="blog"
                     />
                   </div>
@@ -2301,11 +2301,11 @@ import navBar from "../components/navBar.vue";
 
       <div>
         <span class="absolute left-0 top-0 z-[-1]">
-          <img src="images/footer/shape-1.svg" alt="" />
+          <img src="@/assets/images/footer/shape-1.svg" alt="" />
         </span>
 
         <span class="absolute bottom-0 right-0 z-[-1]">
-          <img src="images/footer/shape-3.svg" alt="" />
+          <img src="@/assets/images/footer/shape-3.svg" alt="" />
         </span>
 
         <span class="absolute right-0 top-0 z-[-1]">

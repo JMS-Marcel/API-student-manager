@@ -114,7 +114,7 @@ const onSubmit = async () => {
           </form>
         </div>
         <div>
-          <img src="/images/contactlogin.png"
+          <img src="@/assets/images/user/user-11.png"
             class="w-full h-full max-[600px]:hidden sm:hidden xs:hidden md:block object-cover rounded-md"
             alt="student" />
         </div>
