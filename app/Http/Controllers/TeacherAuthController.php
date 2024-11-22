@@ -19,9 +19,11 @@ class TeacherAuthController extends Controller
         $teacher = Teacher::where('email', $request->email)->first();
 
         if(!$teacher || !Hash::check($request->password, $teacher->password)){
-            return [
+            $data = [
+                'status' => 422,
                 'message' => 'password incorrect'
             ];
+            return response()->json($data, 422);
         }
 
         $token = $teacher->createToken($teacher->nom);

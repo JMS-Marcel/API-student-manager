@@ -17,16 +17,16 @@ Route::get('/user', function(Request $request){
 })->middleware('auth:sanctum');
 
 //Auth admin
-Route::post('login', [AuthAdminController::class, 'login']);
-Route::post('logout', [AuthAdminController::class, 'logout'])->middleware('auth:sanctum');
+Route::post('login-admin', [AuthAdminController::class, 'login']);
+Route::delete('logout-admin', [AuthAdminController::class, 'logout'])->middleware('auth:sanctum');
 
 //Auth teacher
 Route::post('login-teacher', [TeacherAuthController::class, 'login']);
-Route::post('logout-teacher', [TeacherAuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::delete('logout-teacher', [TeacherAuthController::class, 'logout'])->middleware('auth:sanctum');
 
 //Auth Student
 Route::post('login-student', [StudentAuthController::class, 'login']);
-Route::post('logout-student', [StudentAuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::delete('logout-student', [StudentAuthController::class, 'logout'])->middleware('auth:sanctum');
 
 
 //Admin
