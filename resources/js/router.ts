@@ -3,8 +3,9 @@ import Home from './pages/HomePage.vue';
 import Auth from './pages/AuthPage.vue';
 import Register from './Auth/RegisterPage.vue';
 import Login from './Auth/LoginPage.vue';
-import Dashboard from './dashboard/Dashboard.vue';
+import Dashboard from './dashboard/Dashboad.vue';
 import NotFound from './pages/NotFound.vue';
+import { title } from "process";
 const routes = [
   {
     path: '/',
@@ -30,7 +31,10 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard,
-    meta: { requiresAuth: true }
+    meta: { 
+      requiresAuth: true,
+      title: 'Dashboard'
+     }
   },
   {
     path: '/:pathMatch(.*)*',
@@ -43,6 +47,12 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 });
+
+router.beforeEach((to, from, next) => {
+  document.title = `EduTrack ${to.meta.title} | track your school with EduTrack`
+  next()
+})
+
 
 export default router;
 
