@@ -9,8 +9,8 @@ const { toggleSidebar } = useSidebarStore()
 const sidebarStore = useSidebarStore()
 
 const router = useRouter()
-const role = localStorage.getItem("role")
-const token = localStorage.getItem("token")
+const role = sessionStorage.getItem("role")
+const token = sessionStorage.getItem("token")
 
 
 const logout = async () => {
@@ -21,8 +21,8 @@ const logout = async () => {
   })
     .then((res) => {
       if (res.data.status === 200) {
-        localStorage.removeItem('token')
-        localStorage.removeItem('role')
+        sessionStorage.removeItem('token')
+        sessionStorage.removeItem('role')
         alert(res.data.message)
         router.push('/auth')
       }
@@ -42,6 +42,7 @@ const logout = async () => {
       <!-- Main -->
       <main>
         <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+          <h1>{{role}}</h1>
           <slot></slot>
         </div>
       </main>

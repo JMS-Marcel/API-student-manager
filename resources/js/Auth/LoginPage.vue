@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 
-const role = localStorage.getItem("role")
+const role = sessionStorage.getItem("role")
 
 
 
@@ -21,7 +21,7 @@ const onSubmit = async () => {
   })
     .then((res) => {
       if (res.data.token) {
-        localStorage.setItem('token', res.data.token)
+        sessionStorage.setItem('token', res.data.token)
         alert('Connexion réussie !')
         router.push('/dashboard')
       }
