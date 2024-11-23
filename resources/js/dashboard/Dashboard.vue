@@ -1,34 +1,12 @@
 <script setup lang="ts">
-import axios from 'axios';
-import { useRouter } from 'vue-router';
 import { useSidebarStore } from '../../stores/sidebar';
 import HeaderArea from '../components/Header/HeaderArea.vue';
 import SidebarArea from '../components/Sidebar/SidebarArea.vue';
 
 const { toggleSidebar } = useSidebarStore()
 const sidebarStore = useSidebarStore()
-
-const router = useRouter()
 const role = sessionStorage.getItem("role")
-const token = sessionStorage.getItem("token")
 
-
-const logout = async () => {
-  await axios.delete(`api/logout-${role}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    }
-  })
-    .then((res) => {
-      if (res.data.status === 200) {
-        sessionStorage.removeItem('token')
-        sessionStorage.removeItem('role')
-        alert(res.data.message)
-        router.push('/auth')
-      }
-    })
-    .catch((error) => console.log(error))
-}
 
 </script>
 <template>
