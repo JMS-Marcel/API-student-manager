@@ -1,11 +1,8 @@
 <script setup>
-import navBar from "../components/navBar.vue";
-
-const StoreRole = (role) => localStorage.setItem('role', role)
+const StoreRole = (role) => sessionStorage.setItem('role', role)
 
 </script>
 <template>
-  <navBar />
   <div class="bg-gray-50 m-20 p-8 rounded-lg shadow-md">
     <div class="flex flex-col items-center text-center w-max m-auto ">
       <h1 class="m-2 sm:text-2xl md:text-6xl font-medium text-primary">Welcome to EduTrack !</h1>
