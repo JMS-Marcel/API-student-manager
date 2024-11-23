@@ -6,7 +6,7 @@ import SidebarArea from '../components/Sidebar/SidebarArea.vue';
 const { toggleSidebar } = useSidebarStore()
 const sidebarStore = useSidebarStore()
 const role = sessionStorage.getItem("role")
-
+  
 
 </script>
 <template>
@@ -20,7 +20,7 @@ const role = sessionStorage.getItem("role")
       <!-- Main -->
       <main>
         <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-          <h1>{{role}}</h1>
+          <h1>{{role?.toUpperCase() + ' / DASHBOARD'}}</h1>
           <slot></slot>
         </div>
       </main>
