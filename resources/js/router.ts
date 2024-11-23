@@ -49,7 +49,7 @@ export default router;
 router.beforeEach((to, from, next) => {
   
   if (to.meta.requiresAuth) {
-    const isAuthenticated = Boolean(localStorage.getItem('token')); 
+    const isAuthenticated = Boolean(sessionStorage.getItem('token')); 
     if (isAuthenticated) {
       next(); // Autorise l'accès
     } else {
