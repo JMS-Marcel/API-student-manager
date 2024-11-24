@@ -47,7 +47,7 @@ const logout = async () => {
     .catch((error) => console.log(error))
 }
 if (role === 'admin') {
-  UserRole.value = "Admnistrateur"
+  UserRole.value = "Administrateur"
 } else if(role === 'teacher') {
   UserRole.value = "Enseignant"
 }else if(role === 'student'){
