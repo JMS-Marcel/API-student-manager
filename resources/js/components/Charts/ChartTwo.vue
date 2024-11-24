@@ -5,7 +5,7 @@ import VueApexCharts from 'vue3-apexcharts'
 
 const chartData = {
   series: [65, 34, 45, 12],
-  labels: ['Desktop', 'Tablet', 'Mobile', 'Unknown']
+  labels: ['Etudiant', 'Cours', 'Enseignant', 'Autre']
 }
 
 const chart = ref(null)
@@ -51,7 +51,7 @@ const apexOptions = {
   >
     <div class="mb-3 justify-between gap-4 sm:flex">
       <div>
-        <h4 class="text-xl font-bold text-black dark:text-white">Visitors Analytics</h4>
+        <h4 class="text-xl font-bold text-black dark:text-white">Analyse</h4>
       </div>
       <div>
         <div class="relative z-20 inline-block">
@@ -60,8 +60,8 @@ const apexOptions = {
             id=""
             class="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
           >
-            <option value="">Monthly</option>
-            <option value="">Yearly</option>
+            <option value="">Mensuel</option>
+            <option value="">Annuel</option>
           </select>
           <span class="absolute top-1/2 right-3 z-10 -translate-y-1/2">
             <svg
@@ -102,7 +102,7 @@ const apexOptions = {
         <div class="flex w-full items-center">
           <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-primary"></span>
           <p class="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-            <span> Desktop </span>
+            <span>Etudiant </span>
             <span> 65% </span>
           </p>
         </div>
@@ -111,7 +111,7 @@ const apexOptions = {
         <div class="flex w-full items-center">
           <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#6577F3]"></span>
           <p class="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-            <span> Tablet </span>
+            <span> Cours </span>
             <span> 34% </span>
           </p>
         </div>
@@ -120,7 +120,7 @@ const apexOptions = {
         <div class="flex w-full items-center">
           <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#8FD0EF]"></span>
           <p class="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-            <span> Mobile </span>
+            <span>Prof </span>
             <span> 45% </span>
           </p>
         </div>
@@ -129,7 +129,7 @@ const apexOptions = {
         <div class="flex w-full items-center">
           <span class="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#0FADCF]"></span>
           <p class="flex w-full justify-between text-sm font-medium text-black dark:text-white">
-            <span> Unknown </span>
+            <span> Autre </span>
             <span> 12% </span>
           </p>
         </div>
