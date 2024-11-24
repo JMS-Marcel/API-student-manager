@@ -90,10 +90,10 @@ const menuGroups = ref([
         label: 'Teachers',
         route: '#',
         children: [
-          { label: 'Teacher List', route: 'dashboard/teacher/list' },
-          { label: 'Teacher View', route: 'dashboard/teacher/view' },
-          { label: 'Teacher Add', route: 'dashboard/teacher/add' },
-          { label: 'Teacher Edit', route: 'dashboard/teacher/edit' },
+          { label: 'Teacher List', route: '/teacher/list' },
+          { label: 'Teacher View', route: '/teacher/view' },
+          { label: 'Teacher Add', route: '/teacher/add' },
+          { label: 'Teacher Edit', route: '/teacher/edit' },
 
         ]
       },
@@ -121,10 +121,10 @@ const menuGroups = ref([
         label: 'Cours',
         route: '#',
         children: [
-          { label: 'Cours List', route: 'dashboard/cours/list' },
-          { label: 'Cours View', route: 'dashboard/cours/view' },
-          { label: 'Cours Add', route: 'dashboard/cours/add' },
-          { label: 'Cours Edit', route: 'dashboard/cours/edit' },
+          { label: 'Cours List', route: '/cours/list' },
+          { label: 'Cours View', route: '/cours/view' },
+          { label: 'Cours Add', route: '/cours/add' },
+          { label: 'Cours Edit', route: '/cours/edit' },
 
         ]
       },
@@ -159,7 +159,7 @@ const menuGroups = ref([
                   </defs>
                 </svg>`,
         label: 'Profil',
-        route: '/dashboard/profil',
+        route: '/profil',
       },
       {
         icon: `<svg
@@ -191,7 +191,7 @@ const menuGroups = ref([
                   </defs>
                 </svg>`,
         label: 'Paramètre',
-        route: '/dashboard/settings',
+        route: '/settings',
       },
       {
         icon: `<svg
