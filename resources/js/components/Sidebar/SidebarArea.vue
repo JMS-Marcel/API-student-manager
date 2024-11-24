@@ -119,7 +119,14 @@ const menuGroups = ref([
                   </defs>
                 </svg>`,
         label: 'Cours',
-        route: '/dashboard/cours'
+        route: '#',
+        children: [
+          { label: 'Cours List', route: 'dashboard/cours/list' },
+          { label: 'Cours View', route: 'dashboard/cours/view' },
+          { label: 'Cours Add', route: 'dashboard/cours/add' },
+          { label: 'Cours Edit', route: 'dashboard/cours/edit' },
+
+        ]
       },
     ]
   },
@@ -151,9 +158,8 @@ const menuGroups = ref([
                     </clipPath>
                   </defs>
                 </svg>`,
-        label: 'Charts',
-        route: '#',
-        children: [{ label: 'Basic Chart', route: '/charts/basic-chart' }]
+        label: 'Profil',
+        route: '/dashboard/profil',
       },
       {
         icon: `<svg
@@ -184,12 +190,8 @@ const menuGroups = ref([
                     </clipPath>
                   </defs>
                 </svg>`,
-        label: 'UI Elements',
-        route: '#',
-        children: [
-          { label: 'Alerts', route: '/ui-elements/alerts' },
-          { label: 'Buttons', route: '/ui-elements/buttons' }
-        ]
+        label: 'Paramètre',
+        route: '/dashboard/settings',
       },
       {
         icon: `<svg
@@ -218,10 +220,6 @@ const menuGroups = ref([
                 </svg>`,
         label: 'Authentication',
         route: '#',
-        children: [
-          { label: 'Sign In', route: '/auth/signin' },
-          { label: 'Sign Up', route: '/auth/signup' }
-        ]
       }
     ]
   }
