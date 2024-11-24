@@ -6,12 +6,12 @@ import VueApexCharts from 'vue3-apexcharts';
 const chartData = {
   series: [
     {
-      name: 'Product One',
+      name: 'Enseignant',
       data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 45]
     },
 
     {
-      name: 'Product Two',
+      name: 'Etudiant',
       data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39, 51]
     }
   ],
@@ -117,7 +117,7 @@ const apexOptions = {
       }
     },
     min: 0,
-    max: 100
+    max: 120
   }
 }
 </script>
@@ -135,8 +135,8 @@ const apexOptions = {
             <span class="block h-2.5 w-full max-w-2.5 rounded-full bg-primary"></span>
           </span>
           <div class="w-full">
-            <p class="font-semibold text-primary">Total Revenue</p>
-            <p class="text-sm font-medium">12.04.2022 - 12.05.2022</p>
+            <p class="font-semibold text-primary">Total Enseignants</p>
+            <p class="text-sm font-medium">12.04.2024 - 28.02.2025</p>
           </div>
         </div>
         <div class="flex min-w-47.5">
@@ -146,8 +146,8 @@ const apexOptions = {
             <span class="block h-2.5 w-full max-w-2.5 rounded-full bg-secondary"></span>
           </span>
           <div class="w-full">
-            <p class="font-semibold text-secondary">Total Sales</p>
-            <p class="text-sm font-medium">12.04.2022 - 12.05.2022</p>
+            <p class="font-semibold text-secondary">Total Etudiants</p>
+            <p class="text-sm font-medium">12.04.2024 - 28.02.2025</p>
           </div>
         </div>
       </div>
@@ -156,17 +156,17 @@ const apexOptions = {
           <button
             class="rounded bg-white py-1 px-3 text-xs font-medium text-black shadow-card hover:bg-white hover:shadow-card dark:bg-boxdark dark:text-white dark:hover:bg-boxdark"
           >
-            Day
+            Jour
           </button>
           <button
             class="rounded py-1 px-3 text-xs font-medium text-black hover:bg-white hover:shadow-card dark:text-white dark:hover:bg-boxdark"
           >
-            Week
+            Semaine
           </button>
           <button
             class="rounded py-1 px-3 text-xs font-medium text-black hover:bg-white hover:shadow-card dark:text-white dark:hover:bg-boxdark"
           >
-            Month
+            Mois
           </button>
         </div>
       </div>
