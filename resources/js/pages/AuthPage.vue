@@ -15,7 +15,7 @@ const StoreRole = (role) => sessionStorage.setItem('role', role)
       <!-- admin -->
       <router-link 
       @click="StoreRole('admin')"
-      to="login" 
+      to="/auth/login" 
       class="ml-7">
         <div class="admin p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 48 48">
@@ -38,7 +38,7 @@ const StoreRole = (role) => sessionStorage.setItem('role', role)
       </router-link>
 
       <!-- Teacher -->
-      <router-link to="login" 
+      <router-link to="/auth/login" 
       @click="StoreRole('teacher')"
        class="ml-7">
         <div class="teacher p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
@@ -1028,7 +1028,7 @@ const StoreRole = (role) => sessionStorage.setItem('role', role)
       </router-link>
 
       <!-- Student -->
-      <router-link to="/login" 
+      <router-link to="/auth/login" 
       @click="StoreRole('student')"
        class="ml-7">
         <div class="atudent p-6 w-full bg-gray-200 hover:bg-gray-200/60 rounded-full">
