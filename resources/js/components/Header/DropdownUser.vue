@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { onClickOutside } from '@vueuse/core'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useUserCurrentlyStore } from '@/stores/UserCurrently'
+
+
 
 const target = ref(null)
 const dropdownOpen = ref(false)
@@ -17,17 +19,10 @@ const role = sessionStorage.getItem("role")
 const token = sessionStorage.getItem("token")
 const data = ref({})
 
-// fetch user connected
-axios.get('api/user', {
-  headers:{
-    Authorization: `Bearer ${token}`
-  }
-})
-.then((res) => {
-   return data.value = res.data
-  
-})
-.catch((error) => console.error(error))
+const UserCurrently = useUserCurrentlyStore()
+
+onMounted(() => UserCurrently.getUserCurrently())
+
 
 // Logout
 const logout = async () => {
@@ -63,7 +58,8 @@ if (role === 'admin') {
       @click.prevent="dropdownOpen = !dropdownOpen"
     >
       <span class="hidden text-right lg:block">
-        <span class="block text-sm font-medium text-black dark:text-white">{{ `${data.nom} ${data.prenom}` }}</span>
+        <!-- <span class="block text-sm font-medium text-black dark:text-white">{{ `${data.nom} ${data.prenom}` }}</span> -->
+        <span class="block text-sm font-medium text-black dark:text-white">{{ `${UserCurrently.data.nom} ${UserCurrently.data.prenom}` }}</span>
         <span class="block text-xs font-medium">{{ UserRole }}</span>
       </span>
 
