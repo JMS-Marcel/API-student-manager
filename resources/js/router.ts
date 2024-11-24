@@ -5,6 +5,8 @@ import Register from './Auth/RegisterPage.vue';
 import Login from './Auth/LoginPage.vue';
 import Dashboard from './dashboard/Dashboad.vue';
 import NotFound from './pages/NotFound.vue';
+import ProfilePage from './dashboard/ProfilePage.vue'
+import SettingPage from './dashboard/SettingPage.vue'
 import { title } from "process";
 const routes = [
   {
@@ -40,6 +42,22 @@ const routes = [
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: NotFound
+  },
+  {
+    path: '/dashboard/profil',
+    name: 'profile',
+    component: ProfilePage,
+    meta: { 
+      title: 'Profil'
+     }
+  },
+  {
+    path: '/dashboard/settings',
+    name: 'parametre',
+    component: SettingPage,
+    meta: { 
+      title: 'Setting'
+     }
   },
 ];
 
