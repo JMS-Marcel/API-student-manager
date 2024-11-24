@@ -11,12 +11,25 @@ onClickOutside(target, () => {
   dropdownOpen.value = false
 })
 //logout
-
+const UserRole = ref()
 const router = useRouter()
 const role = sessionStorage.getItem("role")
 const token = sessionStorage.getItem("token")
+const data = ref({})
 
+// fetch user connected
+axios.get('api/user', {
+  headers:{
+    Authorization: `Bearer ${token}`
+  }
+})
+.then((res) => {
+   return data.value = res.data
+  
+})
+.catch((error) => console.error(error))
 
+// Logout
 const logout = async () => {
   await axios.delete(`api/logout-${role}`, {
     headers: {
@@ -33,6 +46,13 @@ const logout = async () => {
     })
     .catch((error) => console.log(error))
 }
+if (role === 'admin') {
+  UserRole.value = "Admnistrateur"
+} else if(role === 'teacher') {
+  UserRole.value = "Enseignant"
+}else if(role === 'student'){
+  UserRole.value = "Etudiant"
+}
 </script>
 
 <template>
@@ -43,8 +63,8 @@ const logout = async () => {
       @click.prevent="dropdownOpen = !dropdownOpen"
     >
       <span class="hidden text-right lg:block">
-        <span class="block text-sm font-medium text-black dark:text-white">Thomas Anree</span>
-        <span class="block text-xs font-medium">UX Designer</span>
+        <span class="block text-sm font-medium text-black dark:text-white">{{ `${data.nom} ${data.prenom}` }}</span>
+        <span class="block text-xs font-medium">{{ UserRole }}</span>
       </span>
 
       <span class="h-12 w-12 rounded-full">
