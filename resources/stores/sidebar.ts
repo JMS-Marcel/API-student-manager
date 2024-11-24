@@ -4,7 +4,7 @@ import { ref } from "vue";
 
 export const useSidebarStore = defineStore('sidebar', () =>{
   const isSidebarOpen = ref(false)
-  const selected = useStorage('selected', ref())
+  const selected = useStorage('selected', ref('dashboard'))
   const page = useStorage('page', ref('Dashboard'))
 
   function toggleSidebar(){
