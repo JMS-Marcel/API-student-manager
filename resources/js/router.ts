@@ -15,6 +15,11 @@ const routes = [
     component: Home,
   },
   {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
+  },
+  {
     path: '/auth',
     name: 'Auth',
     component: Auth,
@@ -39,23 +44,20 @@ const routes = [
      }
   },
   {
-    path: '/:pathMatch(.*)*',
-    name: 'NotFound',
-    component: NotFound
-  },
-  {
-    path: '/dashboard/profil',
+    path: '/profil',
     name: 'profile',
     component: ProfilePage,
     meta: { 
+      requiresAuth: true,
       title: 'Profil'
      }
   },
   {
-    path: '/dashboard/settings',
+    path: '/settings',
     name: 'parametre',
     component: SettingPage,
     meta: { 
+      requiresAuth: true,
       title: 'Setting'
      }
   },
