@@ -7,7 +7,11 @@ import Dashboard from './dashboard/Dashboad.vue';
 import NotFound from './pages/NotFound.vue';
 import ProfilePage from './dashboard/ProfilePage.vue'
 import SettingPage from './dashboard/SettingPage.vue'
+import StudentList from "./components/Student/StudentList.vue";
 import { title } from "process";
+import StudentView from "./components/Student/StudentView.vue";
+import StudentAdd from "./components/Student/StudentAdd.vue";
+import StudentEdit from "./components/Student/StudentEdit.vue";
 const routes = [
   {
     path: '/',
@@ -60,6 +64,42 @@ const routes = [
       requiresAuth: true,
       title: 'Setting'
      }
+  },
+  {
+    path: '/student-list',
+    name: 'StudentList',
+    component: StudentList,
+    meta: { 
+      requiresAuth: true,
+      title: 'student list'
+     },
+  },
+  {
+    path: '/student-view',
+    name: 'StudentView',
+    component: StudentView,
+    meta: { 
+      requiresAuth: true,
+      title: 'student list'
+     },
+  },
+  {
+    path: '/student-add',
+    name: 'studentAdd',
+    component: StudentAdd,
+    meta: { 
+      requiresAuth: true,
+      title: 'student list'
+     },
+  },
+  {
+    path: '/student-edit',
+    name: 'studentEdit',
+    component: StudentEdit,
+    meta: { 
+      requiresAuth: true,
+      title: 'student list'
+     },
   },
 ];
 
