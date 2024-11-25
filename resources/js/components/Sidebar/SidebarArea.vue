@@ -62,10 +62,10 @@ const menuGroups = ref([
         label: 'Students',
         route: '#',
         children: [
-          { label: 'Student List', route: 'dashboard/student/list' },
-          { label: 'Student View', route: 'dashboard/student/view' },
-          { label: 'Student Add', route: 'dashboard/student/add' },
-          { label: 'Student Edit', route: 'dashboard/student/edit' },
+          { label: 'Student List', route: '/student-list' },
+          { label: 'Student View', route: '/student-view' },
+          { label: 'Student Add', route: '/student-add' },
+          { label: 'Student Edit', route: '/student-edit' },
 
         ]
       },
@@ -90,10 +90,10 @@ const menuGroups = ref([
         label: 'Teachers',
         route: '#',
         children: [
-          { label: 'Teacher List', route: '/teacher/list' },
-          { label: 'Teacher View', route: '/teacher/view' },
-          { label: 'Teacher Add', route: '/teacher/add' },
-          { label: 'Teacher Edit', route: '/teacher/edit' },
+          { label: 'Teacher List', route: '/teacher-list' },
+          { label: 'Teacher View', route: '/teacher-view' },
+          { label: 'Teacher Add', route: '/teacher-add' },
+          { label: 'Teacher Edit', route: '/teacher-edit' },
 
         ]
       },
@@ -218,7 +218,7 @@ const menuGroups = ref([
                     </clipPath>
                   </defs>
                 </svg>`,
-        label: 'Authentication',
+        label: 'Se déconnecter',
         route: '#',
       }
     ]
