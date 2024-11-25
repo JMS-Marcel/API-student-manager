@@ -20,8 +20,8 @@ const cardItems = ref([
             fill=""
           />
         </svg>`,
-    title: 'Total Teacher',
-    total: '100',
+    title: 'Total Etudiant',
+    total: '5000',
     growthRate: 0.43
   },
   {
@@ -46,8 +46,8 @@ const cardItems = ref([
               fill=""
             />
           </svg>`,
-    title: 'Total Students',
-    total: '5000',
+    title: 'Total Professeur',
+    total: '100',
     growthRate: 4.35
   },
   {
@@ -68,7 +68,7 @@ const cardItems = ref([
               fill=""
             />
           </svg>`,
-    title: 'Total Cours',
+    title: 'Total Personnel',
     total: '2.450',
     growthRate: 2.59
   },
@@ -94,8 +94,8 @@ const cardItems = ref([
               fill=""
             />
           </svg>`,
-    title: 'Total Ecolage',
-    total: '3.456',
+    title: 'Total Cours',
+    total: '32',
     growthRate: -0.95
   }
 ])
