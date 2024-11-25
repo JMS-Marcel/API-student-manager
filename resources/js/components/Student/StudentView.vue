@@ -1,11 +1,13 @@
 <script setup>
-import StudentDefault from '../../dashboard/StudentDefault.vue';
+import { ref } from 'vue'
+import PageActionDefault from '../../Layout/PageActionDefault.vue';
 
+const pageTitle = ref('Student View')
 </script>
 <template>
-  <StudentDefault>
-    <template #student>
+  <PageActionDefault :pageTitle="pageTitle">
+
         <h1>Student View</h1>
-    </template>
-  </StudentDefault>
+
+  </PageActionDefault>
 </template>
