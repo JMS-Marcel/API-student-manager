@@ -121,10 +121,10 @@ const menuGroups = ref([
         label: 'Cours',
         route: '#',
         children: [
-          { label: 'Cours List', route: '/cours/list' },
-          { label: 'Cours View', route: '/cours/view' },
-          { label: 'Cours Add', route: '/cours/add' },
-          { label: 'Cours Edit', route: '/cours/edit' },
+          { label: 'Cours List', route: '/cours-list' },
+          { label: 'Cours View', route: '/cours-view' },
+          { label: 'Cours Add', route: '/cours-add' },
+          { label: 'Cours Edit', route: '/cours-edit' },
 
         ]
       },
