@@ -9,7 +9,7 @@ const formData = ref({
   bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque posuere fermentum urna, eu condimentum mauris tempus ut. Donec fermentum blandit aliquet.'
 })
 
-import userPhoto from '@/assets/images/user/user-03.png'
+import userPhoto from '@/assets/images/user/user-02.png'
 
 const handleSubmit = () => {
   // Handle form submission for personal information
