@@ -59,7 +59,6 @@ if (role === 'admin') {
       @click.prevent="dropdownOpen = !dropdownOpen"
     >
       <span class="hidden text-right lg:block">
-        <!-- <span class="block text-sm font-medium text-black dark:text-white">{{ `${data.nom} ${data.prenom}` }}</span> -->
         <span class="block text-sm font-medium text-black dark:text-white">{{ `${UserCurrently.data.nom} ${UserCurrently.data.prenom}` }}</span>
         <span class="block text-xs font-medium">{{ UserRole }}</span>
       </span>
