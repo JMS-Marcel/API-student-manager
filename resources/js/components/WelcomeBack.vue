@@ -12,6 +12,11 @@ const hidden = ref(false)
 const hiddenBox = () =>{
   hidden.value = !hidden.value
 }
+
+setTimeout(() => {
+  hidden.value = true
+}, 8000);
+
 </script>
 <template>
   <div
