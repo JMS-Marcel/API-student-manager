@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { onClickOutside } from '@vueuse/core'
 import { ref, onMounted } from 'vue'
