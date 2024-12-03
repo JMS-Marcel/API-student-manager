@@ -325,8 +325,8 @@ export default {
     }
   },
   plugins: [
-    require('flowbite/plugin')({
-      datatables: true,
-  }),
+  //  require('flowbite/plugin')({
+  //           datatables: true,
+  //       }),
   ]
 }
