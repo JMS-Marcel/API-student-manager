@@ -13,7 +13,7 @@ const fetchData = async (endPoint) =>{
 }
 onMounted(()=>fetchData(endPoint.value))
 
-const pageTitle = ref('Cours List')
+const pageTitle = ref('Cours')
 </script>
 <template>
   <PageActionDefault :pageTitle="pageTitle">
@@ -37,11 +37,11 @@ const pageTitle = ref('Cours List')
                     </form>
                 </div>
                 <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                    <button type="button" id="createProductModalButton" data-modal-target="createProductModal" data-modal-toggle="createProductModal" class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
-                        <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <button type="button" id="createProductModalButton" data-modal-target="createProductModal" data-modal-toggle="createProductModal" class="flex items-center justify-center text-white bg-primary hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                        <svg class="h-4 w-4 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                         </svg>
-                        Add product
+                        Add Cours
                     </button>
                     <div class="flex items-center space-x-3 w-full md:w-auto">
                         <button id="actionsDropdownButton" data-dropdown-toggle="actionsDropdown" class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" type="button">
@@ -137,8 +137,9 @@ const pageTitle = ref('Cours List')
                             </th>
                         </tr>
                     </thead>
-                    <tbody v-for="cours in data">
-                        <tr class="border-b dark:border-gray-700">
+                    <tbody>
+                        
+                        <tr class="border-b dark:border-gray-700"  v-for="cours in data">
                             <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{cours.id}}</th>
                             <td class="px-4 py-3">{{ cours.nom }}</td>
                             <td class="px-4 py-3 max-w-[12rem] truncate">{{ cours.description }}</td>
@@ -179,6 +180,7 @@ const pageTitle = ref('Cours List')
                                     </ul>
                                 </div>
                             </td>
+                            
                         </tr>
                     </tbody>
                 </table>

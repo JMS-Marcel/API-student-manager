@@ -16,7 +16,7 @@ const pageTitle = ref('Teachers')
         <div class="grid">
       <div class="flex flex-col gap-9">
         <!-- Contact Form Start -->
-        <DefaultCard cardTitle="Contact Form">
+        <DefaultCard cardTitle="Add Teacher">
           <form action="#">
             <div class="p-6.5">
               <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
