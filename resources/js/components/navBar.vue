@@ -1,7 +1,3 @@
-<script setup>
-import DarkModeSwitcher from './Header/DarkModeSwitcher.vue'
-</script>
-
 <template>
      <div
       class="ud-header absolute left-0 top-0 z-40 flex w-full items-center bg-transparent"
@@ -42,7 +38,6 @@ import DarkModeSwitcher from './Header/DarkModeSwitcher.vue'
               </nav>
             </div>
             <div class="flex items-center justify-end pr-16 lg:pr-0">
-              <DarkModeSwitcher />
               <div class="hidden sm:flex">
                 <router-link
                   to="/auth"
