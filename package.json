@@ -18,6 +18,7 @@
         "@vueuse/core": "^11.2.0",
         "apexcharts": "^4.0.0",
         "flatpickr": "^4.6.13",
+        "flowbite": "^2.5.2",
         "pinia": "^2.2.6",
         "simple-datatables": "^9.2.1",
         "vue": "^3.5.12",
