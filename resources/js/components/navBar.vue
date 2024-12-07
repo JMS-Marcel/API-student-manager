@@ -41,7 +41,7 @@
               <div class="hidden sm:flex">
                 <router-link
                   to="/auth"
-                  class="signUpBtn rounded-md bg-white bg-opacity-20 px-6 py-2 ml-7 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark"
+                  class="rounded-md bg-primary bg-opacity-20 px-6 py-2 ml-7 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100"
                 >
                   Get Started
                 </router-link>
