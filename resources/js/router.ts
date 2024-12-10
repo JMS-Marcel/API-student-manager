@@ -87,7 +87,7 @@ const routes = [
      },
   },
   {
-    path: '/student-view',
+    path: '/student-view/:id',
     name: 'StudentView',
     component: StudentView,
     meta: { 
@@ -105,8 +105,8 @@ const routes = [
      },
   },
   {
-    path: '/student-edit',
-    name: 'studentEdit',
+    path: '/student-edit/:id',
+    name: 'StudentEdit',
     component: StudentEdit,
     meta: { 
       requiresAuth: true,
