@@ -2,16 +2,19 @@
 import { onMounted, ref } from 'vue'
 import PageActionDefault from '../../Layout/PageActionDefault.vue';
 import axios from 'axios';
-const endPoint = ref("cours")
+import { useAppUrlStore } from '@/stores/appUrl';
+
+const { APP_URL } = useAppUrlStore()
 const data = ref({})
-const fetchData = async (endPoint) =>{
-  await axios.get(`api/${endPoint}`)
+
+const fetchData = async () =>{
+  await axios.get(`${APP_URL}/api/cours`)
   .then( (res)=> {
       data.value = res.data.cours
   })
   .catch(error => console.log(error))
 }
-onMounted(()=>fetchData(endPoint.value))
+onMounted(()=>fetchData())
 
 const pageTitle = ref('Cours')
 </script>

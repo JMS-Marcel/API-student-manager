@@ -1,94 +1,177 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import DefaultLayout from '../../Layout/DefaultLayout.vue';
 import DefaultCard from '../DashboardForms/DefaultCard.vue';
 import BreadcrumbDefault from '../Breadcrumbs/BreadcrumbDefault.vue';
 import InputGroup from '../DashboardForms/InputGroup.vue';
+import { useAppUrlStore } from '@/stores/appUrl'
+import { useRoute } from 'vue-router';
+import axios from 'axios';
 
+const route = useRoute()
 
+const data = ref({})
 
+const userID = ref()
+
+const { APP_URL } = useAppUrlStore()
+
+const token = sessionStorage.getItem("token")
+
+userID.value = route.params.id
+
+// Champs du formulaire
+const nom = ref('')
+const prenom = ref('')
+const email = ref('')
+const date_naissance = ref('')
+const password = ref('')
+const password_confirmation = ref('')
+const phone = ref('')
+const matricule = ref('')        
+const adresse = ref('') 
+
+const errorMessage = ref()
+
+const getStudentId = async () =>{
+ await axios.get(`${APP_URL}/api/student/${userID.value}`)
+    .then(res => data.value = res.data.student)
+    .catch(error => {
+      if (error.request.status === 404 && error.request.statusText === "Not Found") {
+          errorMessage.value = `L'étudiant id : ${userID.value} n'existe pas 🙁` 
+        }
+    })
+} 
+onMounted(()=> getStudentId())  
+
+const updateStudent = () =>{
+  const payload = {
+    nom: nom.value,
+    prenom: prenom.value,
+    email: email.value,
+    date_naissance: date_naissance.value,
+    password: password.value,
+    password_confirmation: password_confirmation.value,
+    phone: phone.value,
+    matricule: matricule.value,
+    adresse: adresse.value 
+
+  }
+  axios.put(`${APP_URL}/api/student/${userID.value}`, payload, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+    .then(res => (console.log(res.status)
+    ))
+    .catch(error => {
+    console.log(error)
+    errorMessage.value = error.request
+  }
+    )
+}
 const pageTitle = ref('Student')
 </script>
 <template>
   <DefaultLayout>
     <BreadcrumbDefault :pageTitle="pageTitle" />
+    <div class="bg-danger" v-if="errorMessage">{{ errorMessage }}</div>
         <!-- ====== Form Layout Section Start -->
         <div class="grid">
       <div class="flex flex-col gap-9">
         <!-- Contact Form Start -->
         <DefaultCard cardTitle="Edit Student">
-          <form action="#">
+          <form @submit.prevent="updateStudent">
             <div class="p-6.5">
               <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
                 <InputGroup
+                  v-model="nom"
                   label="First name"
                   type="text"
                   placeholder="Enter your first name"
                   customClasses="w-full xl:w-1/2"
+                  :value="data.nom"
                   required
+                  
                 />
 
                 <InputGroup
+                v-model="prenom"
                   label="Last name"
                   type="text"
                   placeholder="Enter your last name"
                   customClasses="w-full xl:w-1/2"
+                  :value="data.prenom"
                   required
                 />
               </div>
               <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
                 <InputGroup
+                v-model="matricule"
                   label="Matricule"
                   type="text"
                   placeholder="Enter Matricule"
                   customClasses="w-full xl:w-1/2"
+                  :value="data.matricule"
                   required
                 />
 
                 <InputGroup
+                  v-model="date_naissance"
                   label="Date de naissance"
                   type="text"
                   placeholder="Date de naissance"
                   customClasses="w-full xl:w-1/2"
+                  :value="data.date_naissance"
                   required
                 />
               </div>
               <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
                 <InputGroup
+                v-model="email"
                 label="Email"
                 type="email"
                 placeholder="Enter your email address"
                 customClasses="w-full xl:w-1/2"
+                :value="data.email"
                 required
               />
 
               <InputGroup
+                v-model="phone"
                 label="Phone"
                 type="text"
                 placeholder="Enter your phone"
                 customClasses="w-full xl:w-1/2"
+                :value="data.phone"
                 required
               />
               </div>
               
-                <InputGroup
-                  label="Adresse"
-                  type="text"
-                  placeholder="Enter adresse"
-                  customClasses="w-full"
-                  required
-                />
-             
               <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
                 <InputGroup
+                  v-model="password"
                   label="Password"
                   type="password"
                   placeholder="Enter password"
                   customClasses="w-full xl:w-1/2"
                   required
                 />
-
+                
                 <InputGroup
+                  v-model="adresse"
+                  label="Adresse"
+                  type="text"
+                  placeholder="Enter adresse"
+                  customClasses="w-full xl:w-1/2"
+                  :value="data.adresse"
+                  required
+                />
+              </div>
+             
+              <div class="mb-4.5 flex flex-col gap-6 xl:flex-row">
+                <InputGroup
+                  v-model="password_confirmation"
                   label="Re-type Password"
                   type="password"
                   placeholder="Re-enter"
@@ -102,6 +185,7 @@ const pageTitle = ref('Student')
              
 
               <button
+                type="submit"
                 class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
               >
                 Send Message
@@ -111,107 +195,6 @@ const pageTitle = ref('Student')
         </DefaultCard>
         <!-- Contact Form End -->
       </div>
-
-      <!-- <div class="flex flex-col gap-9"> -->
-        <!-- Sign In Start -->
-        <!-- <DefaultCard cardTitle="Sign In Form">
-          <form action="#">
-            <div class="p-6.5">
-              <InputGroup
-                label="Email"
-                type="email"
-                placeholder="Enter your email address"
-                customClasses="mb-4.5"
-              />
-
-              <InputGroup label="Password" type="password" placeholder="Enter your password" />
-
-              <div class="mt-5 mb-5.5 flex items-center justify-between">
-                <label for="formCheckbox" class="flex cursor-pointer">
-                  <div class="relative pt-0.5">
-                    <input type="checkbox" id="formCheckbox" class="taskCheckbox sr-only" />
-                    <div
-                      class="box mr-3 flex h-5 w-5 items-center justify-center rounded border border-stroke dark:border-form-strokedark dark:bg-form-input"
-                    >
-                      <span class="text-white opacity-0">
-                        <svg
-                          class="fill-current"
-                          width="10"
-                          height="7"
-                          viewBox="0 0 10 7"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M9.70685 0.292804C9.89455 0.480344 10 0.734667 10 0.999847C10 1.26503 9.89455 1.51935 9.70685 1.70689L4.70059 6.7072C4.51283 6.89468 4.2582 7 3.9927 7C3.72721 7 3.47258 6.89468 3.28482 6.7072L0.281063 3.70701C0.0986771 3.5184 -0.00224342 3.26578 3.785e-05 3.00357C0.00231912 2.74136 0.10762 2.49053 0.29326 2.30511C0.4789 2.11969 0.730026 2.01451 0.992551 2.01224C1.25508 2.00996 1.50799 2.11076 1.69683 2.29293L3.9927 4.58607L8.29108 0.292804C8.47884 0.105322 8.73347 0 8.99896 0C9.26446 0 9.51908 0.105322 9.70685 0.292804Z"
-                            fill=""
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <p>Remember me</p>
-                </label>
-
-                <router-link to="/#" class="text-sm text-primary hover:underline"
-                  >Forget password?
-                </router-link>
-              </div>
-
-              <button
-                class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
-              >
-                Sign In
-              </button>
-            </div>
-          </form>
-        </DefaultCard> -->
-        <!-- Sign In End -->
-
-        <!-- Sign Up Start -->
-        <!-- <DefaultCard cardTitle="Sign Up Form">
-          <form action="#">
-            <div class="p-6.5">
-              <InputGroup
-                label="Name"
-                type="text"
-                placeholder="Enter full name"
-                customClasses="mb-4.5"
-              />
-
-              <InputGroup
-                label="Email"
-                type="email"
-                placeholder="Enter email address"
-                customClasses="mb-4.5"
-              />
-
-              <InputGroup
-                label="Password"
-                type="password"
-                placeholder="Enter password"
-                customClasses="mb-4.5"
-              />
-
-              <InputGroup
-                label="Re-type Password"
-                type="password"
-                placeholder="Re-enter"
-                customClasses="mb-5.5"
-              />
-
-              <button
-                class="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90"
-              >
-                Sign Up
-              </button>
-            </div>
-          </form>
-        </DefaultCard> -->
-        <!-- Sign Up End -->
-      <!-- </div> -->
     </div>
     <!-- ====== Form Layout Section End -->
   </DefaultLayout>

@@ -1,15 +1,18 @@
 import axios from 'axios'
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import { useAppUrlStore } from '@/stores/appUrl'
 //Get User Currently
 
 export const useUserCurrentlyStore = defineStore("UserCurrently",()=>{
+  const { APP_URL } = useAppUrlStore()
+
   const data = ref({})
   
   const token = sessionStorage.getItem("token")
 
   const getUserCurrently = async () =>{
-    await axios.get('api/user', {
+    await axios.get(`${APP_URL}/api/user`, {
     headers:{
       Authorization: `Bearer ${token}`
     }

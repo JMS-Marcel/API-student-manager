@@ -4,8 +4,11 @@ import { useRouter } from 'vue-router';
 import { onClickOutside } from '@vueuse/core'
 import { ref, onMounted } from 'vue'
 import { useUserCurrentlyStore } from '@/stores/UserCurrently'
+import { useAppUrlStore } from '@/stores/appUrl'
 
 
+
+const {APP_URL} = useAppUrlStore()
 
 const target = ref(null)
 const dropdownOpen = ref(false)
@@ -27,7 +30,7 @@ onMounted(() => UserCurrently.getUserCurrently())
 
 // Logout
 const logout = async () => {
-  await axios.delete(`api/logout-${role}`, {
+  await axios.delete(`${APP_URL}/api/logout-${role}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     }

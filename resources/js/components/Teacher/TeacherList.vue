@@ -2,10 +2,12 @@
 import { ref } from 'vue'
 import PageActionDefault from '../../Layout/PageActionDefault.vue';
 import axios from 'axios';
+import {useAppUrlStore} from "@/stores/appUrl"
 
+const { APP_URL } = useAppUrlStore()
 const data = ref({})
 
-axios.get('api/teacher')
+axios.get(`${APP_URL}/api/teacher`)
 .then( (res)=> {
     data.value = res.data.teacher
 })
