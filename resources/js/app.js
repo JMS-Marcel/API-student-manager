@@ -1,5 +1,6 @@
 import './bootstrap';
 import '../css/satoshi.css'
+import 'flowbite';
 
 
 import { createApp } from "vue";

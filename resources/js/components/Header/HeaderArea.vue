@@ -87,7 +87,7 @@ const sidebarStore = useSidebarStore()
             <input
               type="text"
               placeholder="Type to search..."
-              class="w-full xl:w-125 bg-transparent pr-4 pl-9 focus:outline-none"
+              class="w-full xl:w-125 bg-transparent pr-4 pl-9 !border-none rounded"
             />
           </div>
         </form>

@@ -4,6 +4,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
+    "./node_modules/flowbite/**/*.js",
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
@@ -324,5 +325,9 @@ export default {
       }
     }
   },
-  plugins: []
+  plugins: [
+   require('flowbite/plugin')({
+            datatables: true,
+        }),
+  ]
 }

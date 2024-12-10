@@ -13,6 +13,7 @@ class AdminPolicy
      */
     public function modify(Admin $user, Admin $admin): Response
     {
+        // return $user->id === $admin->id || $admin->role === 'admin'
         return $user->id === $admin->id
         ?Response::allow()
         :Response::deny("You can't do this action");
