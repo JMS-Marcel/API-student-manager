@@ -7,7 +7,10 @@ import { useAppUrlStore } from '@/stores/appUrl'
 export const useUserCurrentlyStore = defineStore("UserCurrently",()=>{
   const { APP_URL } = useAppUrlStore()
 
-  const data = ref({})
+  const data = ref({
+    "nom": '',
+    "prenom": ''
+  })
   
   const token = sessionStorage.getItem("token")
 
